@@ -1,18 +1,16 @@
-import React, { useContext, useMemo } from 'react';
-import { useService } from "@xstate/react/lib";
-import { MachineContext } from "../containers/MachineContext";
+import React, {useContext} from 'react';
+import {MachineProviderContext} from "../containers/MachineProvider";
+import {makeUseOfServices} from "../utils";
 
 
-export function useApiService(service) {
-  const [state, send] = useService(service);
+export function useMachineProvider(selector) {
+  const { state, context, send } = useContext(MachineProviderContext);
+  return selector({ state, context, send });
+}
 
-  return useMemo(
-    () => ({
-      state,
-      send,
-      response: state.context.response,
-      error: state.context.error,
-    }),
-    [state, send]
-  );
+export function useServiceProvider(selector) {
+  const value = useContext(MachineProviderContext);
+  const selected = selector(value);
+
+  return makeUseOfServices(selected);
 }

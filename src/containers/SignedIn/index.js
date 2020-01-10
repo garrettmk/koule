@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
-import { MachineContext } from "../../containers/MachineContext";
-import { useService } from "@xstate/react/lib";
+import React from 'react';
+import {useMachineProvider} from "../../hooks";
 
 export default function SignedIn({ children }) {
-  const { context: { auth } } = useContext(MachineContext);
-  const [current] = useService(auth);
+  const state = useMachineProvider(({ state }) => state);
 
-  if (!current.matches('signedIn'))
-    return null;
+  if (state.matches('auth.signedIn'))
+    return children;
 
-  return children;
+  return null;
 }

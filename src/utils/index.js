@@ -1,3 +1,5 @@
+import { useService } from "@xstate/react";
+
 export function bindEventCreators(config = {}, send) {
   return Object.entries(config).reduce(
     (result, [key, value]) => {
@@ -33,4 +35,16 @@ export function groupBy(objects, fn) {
       [key]: result[key] ? result[key].concat(obj) : [obj]
     })
   }, {});
+}
+
+export function makeUseOfServices(services) {
+  return Object.entries(services).reduce(
+    (result, [key, service]) => {
+      const [state, send] = useService(service);
+      const { context } = state;
+
+      return { ...result, [key]: { state, context, send } };
+    },
+    {}
+  );
 }

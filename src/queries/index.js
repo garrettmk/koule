@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const GET_TASKS = gql`
+export const GET_TASKS_BY_DATE = gql`
   query getTasks($after: timestamptz!, $before: timestamptz!) {
     tasks(
       where: {
@@ -13,19 +13,14 @@ export const GET_TASKS = gql`
     ) {
       id
       group_id
+      group {
+        id
+        color
+        description
+      }
       start
       end
       description
-    }
-  }
-`;
-
-export const GET_GROUPS = gql`
-  query getGroups {
-    groups {
-      id
-      description
-      color
     }
   }
 `;
@@ -122,4 +117,62 @@ export const CREATE_TASK = gql`
       }
     }
   }
+`;
+
+export const GET_GROUPS = gql`
+    query getGroups {
+        groups {
+            id
+            description
+            color
+        }
+    }
+`;
+
+export const GET_GROUP_BY_ID = gql`
+    query getGroupById($id: String!) {
+        groups(where: { id: { _eq: $id } }) {
+            id
+            color
+            description
+        }
+    }
+`;
+
+export const UPDATE_GROUP = gql`
+    mutation updateGroup(
+        $id: String!,
+        $color: String
+        $description: String
+    ){
+        update_groups(
+            where: {id: {_eq: $id}},
+            _set: {
+                color: $color,
+                description: $description
+            }
+        ) {
+            returning {
+                id
+                color
+                description
+            }
+        }
+    }
+`;
+
+export const CREATE_GROUP = gql`
+    mutation createGroup($id: String!, $color: String, $description: String!) {
+        insert_groups(objects: {
+            id: $id,
+            color: $color,
+            description: $description
+        }) {
+            returning {
+                id
+                color
+                description
+            }
+        }
+    }
 `;

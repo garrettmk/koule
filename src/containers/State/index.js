@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
-import { MachineContext } from '../../containers/MachineContext';
+import React from 'react';
+import {useMachineProvider} from "../../hooks";
 
 
 export default function State({ matches, children }) {
-  const { state } = useContext(MachineContext);
+  const state = useMachineProvider(({ state }) => state);
 
-  if (!state.matches(matches))
-    return null;
+  const isAMatch = (Array.isArray(matches) ? matches : [matches]).reduce(
+    (result, match) => result || state.matches(match),
+    false
+  );
 
-  return children;
+  if (isAMatch)
+    return children;
+
+  return null;
 }

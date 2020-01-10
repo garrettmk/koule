@@ -13,13 +13,13 @@ export const config = {
     subscription: undefined,
     response: undefined,
     error: undefined,
-    respondWith: 'UPDATE_DATA',
+    respondWith: DEFAULT_RESPONSE_MSG,
   },
   initial: 'idle',
   states: {
     idle: {},
     loading: {
-      entry: 'clearPrevious',
+      entry: 'assignResponseMessage',
       invoke: {
         id: 'fetch',
         src: 'fetch',
@@ -28,6 +28,7 @@ export const config = {
       }
     },
     mutating: {
+      entry: 'assignResponseMessage',
       invoke: {
         id: 'mutate',
         src: 'mutate',
@@ -39,7 +40,8 @@ export const config = {
       entry: ['assignResult', 'updateParent'],
     },
     error: {
-      entry: 'assignError'
+      entry: 'assignError',
+      '': { cond: 'isAuthExpiredError', actions: 'authRequired' }
     },
   },
   on: {
@@ -81,6 +83,10 @@ export const options = {
       response: undefined
     }),
 
+    assignResponseMessage: assign({
+      respondWith: (ctx, event) => event.respondWith || ctx.respondWith || DEFAULT_RESPONSE_MSG
+    }),
+
     updateParent: sendParent(
       ({ respondWith }, { data: { data } }) => ({ type: respondWith || DEFAULT_RESPONSE_MSG, data })
     ),
@@ -102,7 +108,9 @@ export const options = {
 
     assignSubscriptionUpdate: assign({
       response: (_, { data }) => data,
-    })
+    }),
+
+    authRequired: sendParent('SIGN_IN'),
   },
   services: {
     fetch: ({ query: contextQuery }, { query: eventQuery, variables }) => apollo.query({
@@ -115,6 +123,9 @@ export const options = {
       mutation: eventMutation || contextMutation,
       variables,
     })
+  },
+  guards: {
+    isAuthExpiredError: (_, event) => event && event.message.includes('JWTExpired')
   }
 };
 

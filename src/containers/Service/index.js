@@ -1,27 +1,28 @@
-import React, { useContext, useMemo } from 'react';
-import { useService } from "@xstate/react";
-import { MachineContext } from '../../containers/MachineContext';
-import { bindEventCreators } from "../../utils";
+import React, {useMemo} from 'react';
+import {useService} from "@xstate/react";
+import {bindEventCreators} from "../../utils";
+import { MachineProviderContext } from "../MachineProvider";
 
 
 export default function Service({ service, eventCreators, children }) {
-  const parent = useContext(MachineContext);
-  const [current, send] = useService(service);
+  const [state, send] = useService(service);
 
   const value = useMemo(
     () => ({
-      parent,
-      state: current,
-      context: current.context,
+      state: state,
+      context: state.context,
       send,
       ...bindEventCreators(eventCreators, send),
     }),
-    [current, eventCreators, send]
+    [state, eventCreators, send]
   );
 
   return (
-    <MachineContext.Provider value={value}>
-      {children}
-    </MachineContext.Provider>
+    <MachineProviderContext.Provider value={value}>
+      {typeof children === 'function'
+        ? children(value)
+        : children
+      }
+    </MachineProviderContext.Provider>
   )
 }

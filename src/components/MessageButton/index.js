@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { MachineContext } from "../../containers/MachineContext";
+import React from 'react';
+import {useMachineProvider} from "../../hooks";
 
 export default function MessageButton({ message, ...props }) {
-  const { send } = useContext(MachineContext);
+  const send = useMachineProvider(({ send }) => send);
   return (
     <button onClick={() => send(message)} {...props}/>
   );
