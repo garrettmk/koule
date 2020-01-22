@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function TextInput({ value, onSubmit, ...props }) {
+export function TextInput({ value, onSubmit, ...props }) {
   const [currentValue, setCurrentValue] = useState(value);
   useEffect(
     () => setCurrentValue(value),

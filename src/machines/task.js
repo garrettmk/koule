@@ -1,77 +1,200 @@
-import {assign, Machine, sendParent} from "xstate";
-import {UPDATE_TASK} from "../queries";
+import cuid from 'cuid';
+import { spawn, assign } from "xstate";
+import { CREATE_TASK, SUBSCRIBE_CURRENT_TASK, SUBSCRIBE_TASK_BY_ID, UPDATE_TASK } from "../queries";
 
-
-export const config = {
-  id: 'task',
+export default {
   context: {
-    task: {},
+    task: {
+      data: {},
+      error: null,
+      subscription: null
+    }
   },
-  initial: 'invalid',
+
   states: {
-    invalid: {
+    task: {
+      initial: 'invalid',
+      states: {
+        invalid: {
+          on: {
+            '': [
+              { cond: 'isTaskFinished', target: 'finished' },
+              { cond: 'isTaskRunning', target: 'running' },
+              { cond: 'isTaskReady', target: 'ready' },
+            ],
+            SAVE_TASK: undefined,
+          }
+        },
+        ready: {
+          on: {
+            START_TASK: { target: 'saving', actions: 'startTask' },
+          }
+        },
+        running: {
+          on: {
+            FINISH_TASK: { target: 'saving', actions: 'finishTask' },
+          }
+        },
+        finished: {},
+        loading: {
+          entry: 'spawnSubscribeTask',
+          on: {
+            '': { cond: 'isTaskSubscribed', target: 'invalid' },
+            SUBSCRIBE_TASK_RESULT: { target: 'invalid', actions: 'assignSubscribeTaskResult' },
+            '*': undefined
+          }
+        },
+        saving: {
+          invoke: {
+            id: 'save-task',
+            src: 'saveTask',
+            onDone: { target: 'invalid', actions: 'assignSaveTaskResult' },
+            onError: { target: 'error', actions: 'assignSaveTaskError' },
+          },
+          on: {
+            '*': undefined
+          }
+        },
+        error: {}
+      },
       on: {
-        '': [
-          { cond: 'isFinished', target: 'finished' },
-          { cond: 'isRunning', target: 'running' },
-          { cond: 'isReady', target: 'ready' },
-        ]
+        CREATE_TASK: { target: '.invalid', actions: 'createTask' },
+        UPDATE_TASK: { target: '.invalid', actions: 'assignTaskUpdates' },
+        SAVE_TASK: '.saving',
+        LOAD_TASK: '.loading',
+        SUBSCRIBE_TASK_RESULT: { target: '.invalid', actions: 'assignSubscribeTaskResult' }
       }
-    },
-    ready: {
-      on: {
-        START: { target: 'running', actions: ['assignStart', 'sendEdits'] }
-      }
-    },
-    running: {
-      on: {
-        FINISH: { target: 'finished', actions: ['assignEnd', 'sendEdits'] }
-      }
-    },
-    finished: {}
+    }
   },
-  on: {
-    EDIT: { cond: 'isAllowedEdit', actions: ['assignEdits', 'sendEdits'], target: 'invalid' },
-    GET_TASK: { actions: 'getTask' },
-    UPDATE_DATA: { target: 'invalid', actions: 'assignData' },
-    FINISH_AND_NEW: { cond: 'isFinishAllowed', target: 'invalid', actions: ['assignEnd', 'sendEdits', 'createTask'] }
-  }
-};
 
-export const options = {
   actions: {
-    isAllowedEdit: () => true,
+    createTask: assign({
+      task: ({ task }, { data = {} }) => {
+        if (task.subscription)
+          task.subscription.stop();
 
-    assignEdits: assign({
-      task: (ctx, { task }) => ({
-        ...ctx.task,
-        ...task
+        return { data };
+      }
+    }),
+
+    startTask: assign({
+      task: ({ task }) => ({
+        ...task,
+        data: { ...task.data, start: new Date().toISOString() }
       })
     }),
 
-    assignData: assign({
-      task: (_, {task}) => task,
+    finishTask: assign({
+      task: ({ task }) => ({
+        ...task,
+        data: { ...task.data, end: new Date().toISOString() }
+      })
     }),
 
-    assignStart: assign({
-      task: ctx => ({ ...ctx.task, start: new Date().toISOString() }),
+    assignTaskUpdates: assign({
+      task: ({ task }, event ) => {
+        const { group, description } = { ...task.data, ...event.data };
+        const newData = { id: task.data.id || event.data.id, group, description };
+
+        return { ...task, data: newData };
+      }
     }),
 
-    assignEnd: assign({
-      task: ctx => ({ ...ctx.task, end: ctx.task.end || new Date().toISOString() }),
+    spawnSubscribeTask: assign({
+      task: ({ task, apollo }, event) => {
+        if (task.subscription)
+          task.subscription.stop();
+
+        const subscribeToId = task.data.id || event.id;
+
+        const task$ = (subscribeToId
+          ? apollo.subscribe({ query: SUBSCRIBE_TASK_BY_ID, variables: { id: subscribeToId } })
+          : apollo.subscribe({ query: SUBSCRIBE_CURRENT_TASK }))
+          .map(response => ({ type: 'SUBSCRIBE_TASK_RESULT', data: response }));
+
+        return { ...task, subscription: spawn(task$) };
+      }
     }),
 
-    sendEdits: sendParent(
-      ({ task: { id, start, end, group_id, description } }) => ({ type: 'UPDATE_TASK', task: { id, start, end, group_id, description } }),
-    ),
+    assignSubscribeTaskResult: assign({
+      task: ({ task }, { data: result }) => {
+        const data = result.data.tasks[0] || {};
+        return { ...task, data, error: undefined };
+      }
+    }),
+
+    assignSubscribeTaskError: assign({
+      task: ({ task }, { data: error }) => ({
+        ...task,
+        error
+      })
+    }),
+
+    assignSaveTaskResult: assign({
+      task: ({ task }, { data: result }) => {
+        const { update_tasks, insert_tasks } = result.data;
+        const data = update_tasks ? update_tasks.returning[0] : insert_tasks.returning[0];
+
+        return { ...task, data, error: null };
+      }
+    }),
+
+    assignSaveTaskError: assign({
+      task: ({ task }, { data: error }) => ({
+        ...task,
+        error
+      })
+    })
   },
-  guards: {
-    isFinished: ({ task: { id, group_id, description, start, end } = {} }) => id && description && start && end,
-    isRunning: ({ task: { id, group_id, description, start } = {} }) => id && description && start,
-    isReady: ({ task: { id, group_id, description } = {} }) => id && description,
-    isAllowedEdit: () => true,
-    isFinishAllowed: ({ task: { id, description, start } }) => id && description && start,
-  }
-};
 
-export const TaskMachine = Machine(config, options);
+  services: {
+    saveTask: ({ task, apollo }, { data: eventData = {} }) => {
+      const {
+        description,
+        start,
+        end,
+      } = { ...task.data, ...eventData };
+
+      const group = eventData.group || task.data.group || {};
+
+      const dataIfUpdating = {
+        id: task.data.id,
+        group_id: group.id,
+        description,
+        start,
+        end
+      };
+
+      const dataIfCreating = {
+        id: eventData.id || cuid(),
+        group_id: group.id,
+        description,
+        start,
+        end
+      };
+
+      return task.data.id
+        ? apollo.mutate({ mutation: UPDATE_TASK, variables: dataIfUpdating })
+        : apollo.mutate({ mutation: CREATE_TASK, variables: dataIfCreating });
+    }
+  },
+
+  guards: {
+    isTaskFinished: ({ task }) => {
+      const { id, description, start, end } = task.data;
+      return id && description && start && end;
+    },
+
+    isTaskRunning: ({ task }) => {
+      const { id, description, start } = task.data;
+      return id && description && start;
+    },
+
+    isTaskReady: ({ task }) => {
+      const { description } = task.data;
+      return Boolean(description);
+    },
+
+    isTaskSubscribed: ({ task }, event) => task.data.id === event.id && task.subscription,
+  }
+}

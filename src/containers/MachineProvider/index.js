@@ -3,13 +3,13 @@ import {useMachine} from "@xstate/react/lib";
 
 export const MachineProviderContext = createContext({});
 
-export default function MachineProvider({ machine, children }) {
+export function MachineProvider({ machine, children }) {
   const [state, send] = useMachine(machine);
   const value = useMemo(
     () => ({
       state,
       context: state.context,
-      send,
+      send: event => { console.log(event); send(event); },
     }),
     [state, send]
   );

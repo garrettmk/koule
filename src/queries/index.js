@@ -1,31 +1,60 @@
 import gql from 'graphql-tag';
 
-export const GET_TASKS_BY_DATE = gql`
-  query getTasks($after: timestamptz!, $before: timestamptz!) {
+const FRAGMENT_TASK_FIELDS = gql`
+  fragment TaskFields on tasks {
+    id
+    group_id
+    group {
+      id
+      color
+      description
+    }
+    start
+    end
+    description
+  }
+`;
+
+const FRAGMENT_GROUP_FIELDS = gql`
+  fragment GroupFields on groups {
+    id
+    color
+    description
+  }
+`;
+
+export const SUBSCRIBE_TASKS = gql`
+  subscription subscribeTaskList {
+    tasks {
+      ...TaskFields
+    }
+  }
+  
+  ${FRAGMENT_TASK_FIELDS}
+`;
+
+
+
+
+export const SUBSCRIBE_TASKS_BY_DATE = gql`
+  subscription subscribeTasks($after: timestamptz!, $before: timestamptz!) {
     tasks(
       where: {
         _and: [
           { start: { _gte: $after } },
           { start: { _lte: $before } },
         ]
-      }, 
+      },
       order_by: { start: asc }
     ) {
-      id
-      group_id
-      group {
-        id
-        color
-        description
-      }
-      start
-      end
-      description
+      ...TaskFields
     }
   }
+  
+  ${FRAGMENT_TASK_FIELDS}
 `;
 
-export const GET_TASK_COUNT_BY_DATE = gql`
+export const SUBSCRIBE_CALENDAR = gql`
   query getTaskCountByDate {
     task_count_by_date {
       count
@@ -34,50 +63,36 @@ export const GET_TASK_COUNT_BY_DATE = gql`
   }
 `;
 
-export const GET_CURRENT_TASK = gql`
-  query getCurrentTask {
+export const SUBSCRIBE_CURRENT_TASK = gql`
+  subscription subscribeCurrentTask {
     tasks(where: {end: {_is_null: true}}, limit: 1) {
-      id
-      group_id
-      group {
-        id
-        description
-        color
-      }
-      start
-      end
-      description
+      ...TaskFields
     }
   }
+  
+  ${FRAGMENT_TASK_FIELDS}
 `;
 
-export const GET_TASK_BY_ID = gql`
-  query getTaskById($id: String!) {
+export const SUBSCRIBE_TASK_BY_ID = gql`
+  subscription subscribeTaskById($id: String!) {
     tasks(where: { id: { _eq: $id } }) {
-      id
-      group_id,
-      group {
-        id
-        description
-        color
-      }
-      start
-      end
-      description
+      ...TaskFields
     }
   }
+  
+  ${FRAGMENT_TASK_FIELDS}
 `;
 
 export const UPDATE_TASK = gql`
   mutation updateTask(
-    $id: String!, 
+    $id: String!,
     $group_id: String,
     $start: timestamptz,
     $end: timestamptz,
     $description: String
   ){
     update_tasks(
-      where: {id: {_eq: $id}}, 
+      where: {id: {_eq: $id}},
       _set: {
         group_id: $group_id,
         start: $start,
@@ -86,14 +101,12 @@ export const UPDATE_TASK = gql`
       }
     ) {
       returning {
-        id
-        group_id
-        start
-        end
-        description
+        ...TaskFields
       }
     }
   }
+  
+  ${FRAGMENT_TASK_FIELDS}
 `;
 
 export const CREATE_TASK = gql`
@@ -103,76 +116,70 @@ export const CREATE_TASK = gql`
       group_id: $group_id,
       start: $start,
       description: $description,
-   }) {
+    }) {
       returning {
-        id
-        group_id
-        group {
-          id
-          description
-          color
-        }
-        start
-        description
+        ...TaskFields
       }
     }
   }
+  
+  ${FRAGMENT_TASK_FIELDS}
 `;
 
-export const GET_GROUPS = gql`
-    query getGroups {
-        groups {
-            id
-            description
-            color
-        }
+export const SUBSCRIBE_GROUP_LIST = gql`
+  subscription subscribeGroups {
+    groups {
+      ...GroupFields
     }
+  }
+  
+  ${FRAGMENT_GROUP_FIELDS}
 `;
 
-export const GET_GROUP_BY_ID = gql`
-    query getGroupById($id: String!) {
-        groups(where: { id: { _eq: $id } }) {
-            id
-            color
-            description
-        }
+export const SUBSCRIBE_GROUP = gql`
+  subscription subscribeGroup($id: String!) {
+    groups(where: { id: { _eq: $id } }) {
+      ...GroupFields
     }
+  }
+  
+  ${FRAGMENT_GROUP_FIELDS}
 `;
 
 export const UPDATE_GROUP = gql`
-    mutation updateGroup(
-        $id: String!,
-        $color: String
-        $description: String
-    ){
-        update_groups(
-            where: {id: {_eq: $id}},
-            _set: {
-                color: $color,
-                description: $description
-            }
-        ) {
-            returning {
-                id
-                color
-                description
-            }
-        }
+  mutation updateGroup(
+    $id: String!,
+    $color: String
+    $description: String
+  ){
+    update_groups(
+      where: {id: {_eq: $id}},
+      _set: {
+        color: $color,
+        description: $description
+      }
+    ) {
+      returning {
+        ...GroupFields
+      }
     }
+  }
+  
+  ${FRAGMENT_GROUP_FIELDS}
 `;
 
 export const CREATE_GROUP = gql`
-    mutation createGroup($id: String!, $color: String, $description: String!) {
-        insert_groups(objects: {
-            id: $id,
-            color: $color,
-            description: $description
-        }) {
-            returning {
-                id
-                color
-                description
-            }
-        }
+  mutation createGroup($id: String!, $color: String, $description: String!) {
+    insert_groups(objects: {
+      id: $id,
+      color: $color,
+      description: $description
+    }) {
+      returning {
+        ...GroupFields
+      }
     }
+  }
+  
+  ${FRAGMENT_GROUP_FIELDS}
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import {useMachineProvider} from "../../hooks";
 
 
-export default function State({ matches, children }) {
+export function State({ matches, children }) {
   const state = useMachineProvider(({ state }) => state);
 
   const isAMatch = (Array.isArray(matches) ? matches : [matches]).reduce(
