@@ -28,7 +28,6 @@ export const SelectedBackground = styled(animated.div)`
   box-sizing: border-box;
   background-color: ${ props => props.theme.colors[props.color] };
   cursor: pointer;
-  clip-path: polygon(0% 0%, 0% 100%, 4px 100%, 4px 0%);
 `;
 
 export const ListSubHeader = styled.li`

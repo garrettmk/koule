@@ -11,10 +11,13 @@ function ListItem({ color = 'gray', selected, children, ...props }) {
   const [ref, bounds] = useMeasure({ polyfill: ResizeObserver });
   const { width, height } = bounds;
 
-  const openClipPath = `polygon(0px 0px, 0px ${height}px, ${width}px ${height}px, ${width}px 0px)`;
-  const closedClipPath = `polygon(0px 0px, 0px ${height}px, 4px ${height}px, 4px 0px)`;
+  // const openClipPath = `polygon(0px 0px, 0px ${height}px, ${width}px ${height}px, ${width}px 0px)`;
+  // const closedClipPath = `polygon(0px 0px, 0px ${height}px, 4px ${height}px, 4px 0px)`;
 
-  const animatedProps = useSpring({ clipPath: selected ? openClipPath : closedClipPath });
+  const selectedClip = `rect(0px ${width}px ${height}px 0px)`;
+  const normalClip = `rect(0px 4px ${height}px 0px)`;
+
+  const animatedProps = useSpring({ clip: selected ? selectedClip : normalClip });
 
   return (
     <S.ListItem {...props}>
