@@ -13,8 +13,8 @@ export const darkTheme = {
   fonts: {
     title: '1.5rem "Arvo", serif',
     subtitle: '1.125rem "Arvo", serif',
-    body: '1rem 1 "Noto Sans", sans-serif',
-    caption: '0.75rem 1 "Noto Sans", sans-serif'
+    body: '1rem "Noto Sans", sans-serif',
+    caption: '0.75rem "Noto Sans", sans-serif'
   },
   sizing: {
     units: number => `${number * 8}px`,
