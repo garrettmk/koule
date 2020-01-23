@@ -10,3 +10,5 @@ export * from './Button';
 export * from './Collapse';
 export * from './Divider';
 export * from './SubList';
+export * from './ColorSwatch';
+export * from './ColorSelector';

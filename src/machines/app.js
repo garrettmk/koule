@@ -4,6 +4,7 @@ import navigation from './navigation';
 import tasks from './tasks';
 import task from './task';
 import groups from './groups';
+import group from './group';
 
 function combineMachineFragments({ fragments = [], config = { type: 'parallel' }, implementation = {} }) {
   const combinedConfig = fragments.reduce((result, fragment) => Object.assign(result, {
@@ -23,7 +24,14 @@ function combineMachineFragments({ fragments = [], config = { type: 'parallel' }
 
 const [config, implementation] = combineMachineFragments({
   config: { id: 'app-machine', type: 'parallel' },
-  fragments: [auth, navigation, tasks, task, groups]
+  fragments: [
+    auth,
+    navigation,
+    tasks,
+    task,
+    groups,
+    group
+  ]
 });
 
 export default Machine(config, implementation);

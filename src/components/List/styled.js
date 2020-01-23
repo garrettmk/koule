@@ -28,6 +28,7 @@ export const SelectedBackground = styled(animated.div)`
   box-sizing: border-box;
   background-color: ${ props => props.theme.colors[props.color] };
   cursor: pointer;
+  clip: rect(0px 4px 100% 0px)
 `;
 
 export const ListSubHeader = styled.li`

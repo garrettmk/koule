@@ -1,16 +1,21 @@
 import React from 'react';
 import { useMachineProvider } from "../../hooks";
-import { Header, List, Text, Collapse, Divider } from '../../components';
-import { State} from "../../containers";
+import { Header, List } from '../../components';
+import { State } from "../../containers";
 import * as S from './styled';
+import { GroupItem } from "./GroupItem";
 
 
 export function GroupsPage() {
-  const { send, groups, error } = useMachineProvider(({ send, context }) => ({
+  const { send, groups, selectedGroup, error } = useMachineProvider(({ send, context }) => ({
     send,
     groups: context.groups.data,
     error: context.groups.error,
+    selectedGroup: context.group.data,
   }));
+
+  const handleSelectGroup = group => send({ type: 'SELECT_GROUP', group });
+  const handleUpdateGroup = updates => send({ type: 'SAVE_GROUP', data: updates });
 
   return (
     <S.GroupsPage>
@@ -21,15 +26,12 @@ export function GroupsPage() {
       <State matches={'groups.idle'}>
         <List>
           {groups.map(group => (
-            <List.Item
-              selected={true}
-              color={group.color || 'gray'}
-              style={{ marginTop: 1 }}
-            >
-              <Text.Subtitle>
-                {group.description}
-              </Text.Subtitle>
-            </List.Item>
+            <GroupItem
+              group={group}
+              selected={selectedGroup.id === group.id}
+              onSelect={handleSelectGroup}
+              onUpdate={handleUpdateGroup}
+            />
           ))}
         </List>
       </State>
