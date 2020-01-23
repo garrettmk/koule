@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { TextInput, IconButton, SubList } from "../../../components";
 
 export const DescriptionInput = styled(TextInput)`
-  color: ${ props => props.theme.colors.text.secondary };
+  color: ${ props => props.theme.colors.text.primary };
   font: ${ props => props.theme.fonts.subtitle };
   flex: 1 1 100%;
   
   &:enabled {
     color: ${ props => props.theme.colors.text.primary };
   }
+  
+  transition: color 300ms ease-in;
 `;
 
 export const TrashButton = styled(IconButton)`
@@ -22,8 +24,4 @@ export const TrashButton = styled(IconButton)`
   }
   
   transition: opacity 300ms ease-in;
-`;
-
-export const SubListItem = styled(SubList.Item)`
-  border-left: 4px solid ${ props => props.theme.colors[props.color || 'gray'] };
 `;

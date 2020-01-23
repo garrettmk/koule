@@ -1,13 +1,14 @@
 export const darkTheme = {
   colors: {
     background: '#1F1F1F',
+    foreground: '#3B3C3D',
     text: {
       primary: 'rgba(255, 255, 255, 0.95)',
       secondary: 'rgba(255, 255, 255, 0.65)',
     },
     divider: 'rgba(255, 255, 255, 0.10)',
-    orange: 'orange',
-    blue: 'blue',
+    orange: '#FFC15E',
+    blue: '#4E89F5',
     gray: 'gray',
   },
   fonts: {

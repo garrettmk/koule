@@ -1,5 +1,5 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, { useContext } from 'react';
+import { ThemeProvider, ThemeContext } from 'styled-components';
 import { lightTheme } from "../../theme";
 import * as S from './styled';
 import { useSpring } from "react-spring";
@@ -7,7 +7,9 @@ import { ResizeObserver } from "@juggle/resize-observer";
 import useMeasure from 'react-use-measure';
 
 
-function ListItem({ color = 'gray', selected, children, ...props }) {
+function ListItem({ color: colorProp = 'gray', selected, children, ...props }) {
+  const { colors: themeColors } = useContext(ThemeContext);
+
   const [ref, bounds] = useMeasure({ polyfill: ResizeObserver });
   const { width, height } = bounds;
 
@@ -19,8 +21,8 @@ function ListItem({ color = 'gray', selected, children, ...props }) {
   return (
     <S.ListItem {...props}>
       {children}
-      <ThemeProvider theme={lightTheme}>
-        <S.SelectedBackground ref={ref} color={color} style={animatedProps}>
+      <ThemeProvider theme={currentTheme => themeColors[colorProp] ? lightTheme : currentTheme}>
+        <S.SelectedBackground ref={ref} color={colorProp} style={animatedProps}>
           {children}
         </S.SelectedBackground>
       </ThemeProvider>

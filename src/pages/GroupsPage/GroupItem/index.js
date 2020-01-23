@@ -1,5 +1,5 @@
 import React, { Fragment, useLayoutEffect, useRef } from 'react';
-import { List, Collapse, SubList, ColorSelector } from "../../../components";
+import { List, Collapse, SubList, ColorSelector, Text } from "../../../components";
 import { TrashIcon } from "../../../icons";
 import * as S from './styled';
 
@@ -16,7 +16,7 @@ export function GroupItem({ group, selected, onSelect, onUpdate }) {
       <List.Item
         selected={selected}
         onClick={() => onSelect(group)}
-        color={group.color || 'gray'}
+        color={group.color}
         style={{ marginTop: 1 }}
       >
         <S.DescriptionInput
@@ -33,11 +33,11 @@ export function GroupItem({ group, selected, onSelect, onUpdate }) {
       <Collapse.Outer open={selected}>
         <Collapse.Inner>
           <SubList>
-            <S.SubListItem color={group.color}>
+            <SubList.Item color={group.color} style={{ paddingTop: 24, paddingBottom: 24 }}>
               <ColorSelector
                 onChange={color => onUpdate({ color })}
               />
-            </S.SubListItem>
+            </SubList.Item>
           </SubList>
         </Collapse.Inner>
       </Collapse.Outer>

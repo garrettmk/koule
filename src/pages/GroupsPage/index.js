@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useMachineProvider } from "../../hooks";
 import { Header, List } from '../../components';
 import { State } from "../../containers";
@@ -25,13 +25,18 @@ export function GroupsPage() {
       </State>
       <State matches={'groups.idle'}>
         <List>
-          {groups.map(group => (
-            <GroupItem
-              group={group}
-              selected={selectedGroup.id === group.id}
-              onSelect={handleSelectGroup}
-              onUpdate={handleUpdateGroup}
-            />
+          {groups.map((group, index) => (
+            <Fragment>
+              <GroupItem
+                group={group}
+                selected={selectedGroup.id === group.id}
+                onSelect={handleSelectGroup}
+                onUpdate={handleUpdateGroup}
+              />
+              {index < groups.length - 1 && (
+                <S.Divider/>
+              )}
+            </Fragment>
           ))}
         </List>
       </State>
