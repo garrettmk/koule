@@ -12,7 +12,7 @@ export function Navigation() {
     offset = -1;
   if (state.matches('navigation.tasks'))
     offset = 0;
-  if (state.matches('navigation.currentTask'))
+  if (state.matches('navigation.task'))
     offset = 1;
 
   return (
@@ -26,7 +26,7 @@ export function Navigation() {
           <ListIcon/>
         </IconButton>
 
-        <IconButton onClick={() => send('NAVIGATE_CURRENT')}>
+        <IconButton onClick={() => send('NAVIGATE_TASK')}>
           <CheckIcon/>
         </IconButton>
       </S.Icons>

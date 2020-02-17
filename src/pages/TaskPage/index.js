@@ -1,15 +1,24 @@
 import React from 'react';
-import { Header, TextInput } from '../../components';
+import { Header, TextInput, Button } from '../../components';
 import * as S from './styled';
 import { State } from "../../containers/State";
 import { useMachineProvider } from "../../hooks";
 
 export function TaskPage() {
-  const { send, task, error } = useMachineProvider(({ send, context }) => ({
+  const { send, task, error, groups } = useMachineProvider(({ send, context }) => ({
     send,
     task: context.task.data,
     error: context.task.error,
+    groups: context.groups.data,
   }));
+
+  const handleChangeGroup = event => {
+    const { value } = event.target;
+    const group = groups.find(group => group.id === value) || {};
+
+    send({ type: 'UPDATE_TASK', data: { group } });
+    send('SAVE_TASK');
+  };
 
   return (
     <S.TaskPage>
@@ -34,6 +43,22 @@ export function TaskPage() {
                 send('SAVE_TASK');
               }}
             />
+          </li>
+          <li style={{ display: 'flex' }}>
+            <select value={task.group ? task.group.id : null} onChange={handleChangeGroup}>
+              <option value={null}>No group</option>
+              {groups.map(group => (
+                <option
+                  key={group.id}
+                  value={group.id}
+                >
+                  {group.description}
+                </option>
+              ))}
+            </select>
+            <Button color={'blue'} onClick={() => send('NAVIGATE_GROUP')}>
+              New Group
+            </Button>
           </li>
           <li>Start: {task.start}</li>
           <li>End: {task.end}</li>

@@ -15,12 +15,17 @@ export default {
       initial: 'idle',
       states: {
         loading: {
-          entry: 'spawnSubscribeGroups',
           on: {
+            '': [
+              { cond: 'isAlreadySubscribed', target: 'idle' },
+              { actions: 'spawnSubscribeGroups' }
+            ],
+
             SUBSCRIBE_GROUPS_RESULT: {
               target: 'idle',
               actions: 'assignSubscribeGroupsResult',
             },
+
             '*': undefined
           }
         },
@@ -28,6 +33,7 @@ export default {
         error: {}
       },
       on: {
+        SIGNED_IN: { target: '.loading' },
         LOAD_GROUPS: { target: '.loading' },
         SUBSCRIBE_GROUPS_RESULT: { target: '.idle', actions: 'assignSubscribeGroupsResult' }
       }
@@ -62,6 +68,6 @@ export default {
   },
 
   guards: {
-
+    isAlreadySubscribed: ({ groups }) => Boolean(groups.subscription),
   }
 }

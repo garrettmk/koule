@@ -1,63 +1,84 @@
 import React, { Fragment, useState } from 'react';
 import { format as formatDate, isSameDay } from 'date-fns';
+import { Text, List } from "../../components";
 import { useMachineProvider } from "../../hooks";
-import { State } from "../../containers";
-import { Header, List } from '../../components';
-import * as S from "./styled";
+import { State, PageHeader, BackButton } from "../../containers";
+import * as S from './styled';
 import { groupTasksByDay, groupTasksByGroup } from "./utils";
-import { TaskGroupItem } from "./components/TaskGroupItem";
-import { UngroupedTasksItem } from "./components/UngroupedTasksItem";
 
 
 export function TasksPage() {
-  const { send, tasks, error } = useMachineProvider(({ send, context }) => ({
-    send,
+  const { handleClickTask, tasks, error } = useMachineProvider(({ send, context }) => ({
     tasks: context.tasks.data,
-    error: context.tasks.error
+    error: context.tasks.error,
+
+    handleClickTask: task => send({ type: 'NAVIGATE_TASK', id: task.id })
   }));
 
-  const [selected, setSelected] = useState({});
-  const isSelected = (date, groupIndex) =>
-    isSameDay(date, selected.date) && groupIndex === selected.groupIndex;
-
-  const toggleSelected = (date, groupIndex) => {
-    if (isSelected(date, groupIndex))
-      return setSelected({});
-
-    setSelected({ date, groupIndex });
-  };
+  const [selectedTask, setSelectedTask] = useState();
 
   return (
-    <S.TasksPage>
-      <Header>Tasks</Header>
+    <S.Page>
+      <PageHeader>
+        <PageHeader.Navigation>
+          <BackButton/>
+        </PageHeader.Navigation>
+        <PageHeader.Title>
+          Tasks
+        </PageHeader.Title>
+      </PageHeader>
+
       <State matches={'tasks.loading'}>
         Loading...
       </State>
-      <State matches={'tasks.idle'}>
-        <List>
-          {groupTasksByDay(tasks).map(tasksForDate => {
-            const date = new Date(tasksForDate[0].start);
-
-            return (
-              <Fragment>
-                <List.SubHeader>
-                  {formatDate(new Date(tasksForDate[0].start), 'EEEE, MMM Do')}
-                </List.SubHeader>
-                {groupTasksByGroup(tasksForDate).map((tasksForGroup, groupIndex) => (
-                  <TaskGroupItem
-                    tasks={tasksForGroup}
-                    selected={isSelected(date, groupIndex)}
-                    onClick={() => toggleSelected(date, groupIndex)}
-                  />
-                ))}
-              </Fragment>
-            )
-          })}
-        </List>
-      </State>
       <State matches={'tasks.error'}>
-        Error
+        <Text.Body color={'error'}>
+          {error}
+        </Text.Body>
       </State>
-    </S.TasksPage>
-  );
+      <List>
+        {groupTasksByDay(tasks).map(tasksForDate => {
+          const date = new Date(tasksForDate[0].start);
+
+          return (
+            <Fragment>
+              <S.DateItem>
+                {formatDate(date, 'EEEE MMM Do')}
+              </S.DateItem>
+              {groupTasksByGroup(tasksForDate).map((tasksForGroup, groupIndex) => {
+                const group = tasksForGroup[0].group || {};
+                const { description, color } = group;
+
+                return (
+                  <S.GroupItem>
+                    <S.GroupItemColor color={color}/>
+                    {description && (
+                      <Text.Caption
+                        color={'secondary'}
+                        style={{ display: 'black' }}
+                      >
+                        {description}
+                      </Text.Caption>
+                    )}
+                    <S.List>
+                      {tasksForGroup.map(task => (
+                        <Fragment>
+                          <S.TaskItem onClick={() => handleClickTask(task)}>
+                            <Text.Body>
+                              {task.description}
+                            </Text.Body>
+                            <S.TaskItemDivider/>
+                          </S.TaskItem>
+                        </Fragment>
+                      ))}
+                    </S.List>
+                  </S.GroupItem>
+                )
+              })}
+            </Fragment>
+          )
+        })}
+      </List>
+    </S.Page>
+  )
 }

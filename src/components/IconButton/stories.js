@@ -12,6 +12,7 @@ export const story = () => (
   <IconButton
     onClick={action('onClick')}
     color={select('color', ['orange'], 'orange')}
+    disabled={boolean('disabled', false)}
   >
     <GroupIcon/>
   </IconButton>

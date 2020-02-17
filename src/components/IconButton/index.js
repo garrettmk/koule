@@ -9,4 +9,8 @@ export const IconButton = styled.button`
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  
+  &:disabled {
+    opacity: 50%;
+  }
 `;

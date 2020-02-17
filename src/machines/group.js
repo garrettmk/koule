@@ -18,17 +18,12 @@ export default {
         invalid: {
           on: {
             '': { cond: 'isGroupValid', target: 'valid' },
-            SAVE_GROUP: undefined,
           }
         },
         valid: {},
         loading: {
           entry: 'spawnGroupSubscription',
           on: {
-            // '': [
-            //   { cond: 'isGroupSubscribed', target: 'invalid' },
-            //   { actions: 'spawnGroupSubscription' }
-            // ],
             SUBSCRIBE_GROUP_RESULT: { target: 'invalid', actions: 'assignSubscribeGroupResult' },
             '*': undefined
           },
@@ -51,7 +46,7 @@ export default {
         LOAD_GROUP: '.loading',
         SELECT_GROUP: { target: '.invalid', actions: 'assignSelectedGroup' },
         UPDATE_GROUP: { target: '.invalid', actions: 'assignGroupUpdates' },
-        SAVE_GROUP: '.saving',
+        SAVE_GROUP: { cond: 'isGroupWithUpdatesValid', target: '.saving' },
         SUBSCRIBE_GROUP_RESULT: { target: '.invalid', actions: 'assignSubscribeGroupResult' }
       }
     }
@@ -160,6 +155,11 @@ export default {
   guards: {
     isGroupValid: ({ group }) => {
       const { description } = group.data;
+      return Boolean(description);
+    },
+
+    isGroupWithUpdatesValid: ({ group }, event) => {
+      const { description } = { ...group.data, ...event.data };
       return Boolean(description);
     },
 

@@ -7,12 +7,14 @@ export const Text = styled.span`
 
 Text.Title = styled.p`
   font: ${ props => props.theme.fonts.title };
-  color: ${ props => props.theme.colors.text[props.color || 'secondary'] };
+  color: ${ props => props.theme.colors.text[props.color || 'primary'] };
+  margin: 0;
 `;
 
 Text.Subtitle = styled.p`
   font: ${ props => props.theme.fonts.subtitle };
-  color: ${ props => props.theme.colors.text[props.color || 'secondary'] };
+  color: ${ props => props.theme.colors.text[props.color || 'primary'] };
+  margin: 0;
 `;
 
 Text.Body = styled.span`
@@ -22,9 +24,5 @@ Text.Body = styled.span`
 
 Text.Caption = styled.span`
   font: ${ props => props.theme.fonts.caption };
-  color: ${ props => props.theme.colors.text[props.color || 'secondary'] };
-`;
-
-export const Body = styled.p`
-
+  color: ${ props => props.theme.colors.text[props.color || 'primary'] };
 `;

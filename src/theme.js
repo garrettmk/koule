@@ -3,9 +3,10 @@ export const darkTheme = {
     background: '#1F1F1F',
     foreground: '#3B3C3D',
     text: {
-      primary: 'rgba(255, 255, 255, 0.95)',
+      primary: 'rgba(255, 255, 255, 0.90)',
       secondary: 'rgba(255, 255, 255, 0.65)',
     },
+    error: 'red',
     divider: 'rgba(255, 255, 255, 0.10)',
     orange: '#FFC15E',
     blue: '#4E89F5',
@@ -14,8 +15,8 @@ export const darkTheme = {
   fonts: {
     title: '1.5rem "Arvo", serif',
     subtitle: '1.125rem "Arvo", serif',
-    body: '1rem "Noto Sans", sans-serif',
-    caption: '0.75rem "Noto Sans", sans-serif'
+    body: '1rem "Arvo", serif',
+    caption: '0.75rem "Arvo", serif'
   },
   sizing: {
     units: number => `${number * 8}px`,
@@ -26,6 +27,7 @@ export const darkTheme = {
       small: '16px'
     }
   },
+  borderRadius: '4px',
   springs: {
     quick: {
       mass: 1,

@@ -93,8 +93,11 @@ export default {
 
     assignTaskUpdates: assign({
       task: ({ task }, event ) => {
+        const id = task.data.id || event.data.id;
         const { group, description } = { ...task.data, ...event.data };
-        const newData = { id: task.data.id || event.data.id, group, description };
+        const { start, end } = task.data;
+
+        const newData = { id, group, description, start, end };
 
         return { ...task, data: newData };
       }
@@ -105,7 +108,7 @@ export default {
         if (task.subscription)
           task.subscription.stop();
 
-        const subscribeToId = task.data.id || event.id;
+        const subscribeToId = event.id || task.data.id;
 
         const task$ = (subscribeToId
           ? apollo.subscribe({ query: SUBSCRIBE_TASK_BY_ID, variables: { id: subscribeToId } })

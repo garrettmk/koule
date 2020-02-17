@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button } from "../../components";
+import { Button } from "../../components";
 import * as S from './styled';
 import { useMachineProvider } from "../../hooks";
 
@@ -9,8 +9,12 @@ export function LoginScreen() {
 
   return (
     <S.LoginScreen>
-      <Text.Title>Koule</Text.Title>
-      <Button onClick={() => send({ type: 'SIGN_IN', loginRequired: false })}>
+      <S.Title>Koule</S.Title>
+      <Button
+        variant={'solid'}
+        color={'blue'}
+        onClick={() => send({ type: 'SIGN_IN', loginRequired: false })}
+      >
         Sign In
       </Button>
     </S.LoginScreen>
