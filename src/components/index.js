@@ -12,3 +12,4 @@ export * from './Divider';
 export * from './SubList';
 export * from './ColorSwatch';
 export * from './ColorSelector';
+export * from './TaskDuration';

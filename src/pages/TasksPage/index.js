@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { format as formatDate, isSameDay } from 'date-fns';
-import { Text, List } from "../../components";
+import { Text, List, TaskDuration } from "../../components";
 import { useMachineProvider } from "../../hooks";
 import { State, PageHeader, BackButton } from "../../containers";
 import * as S from './styled';
-import { groupTasksByDay, groupTasksByGroup } from "./utils";
+import { groupTasksByDay, groupTasksByGroup, formatTaskDuration } from "./utils";
 
 
 export function TasksPage() {
@@ -14,8 +14,6 @@ export function TasksPage() {
 
     handleClickTask: task => send({ type: 'NAVIGATE_TASK', id: task.id })
   }));
-
-  const [selectedTask, setSelectedTask] = useState();
 
   return (
     <S.Page>
@@ -37,41 +35,57 @@ export function TasksPage() {
         </Text.Body>
       </State>
       <List>
-        {groupTasksByDay(tasks).map(tasksForDate => {
+        {groupTasksByDay(tasks).map((tasksForDate, dateIndex) => {
           const date = new Date(tasksForDate[0].start);
+          const isLastDate = dateIndex === tasks.length - 1;
 
           return (
             <Fragment>
-              <S.DateItem>
+              <List.Section>
                 {formatDate(date, 'EEEE MMM Do')}
-              </S.DateItem>
-              {groupTasksByGroup(tasksForDate).map((tasksForGroup, groupIndex) => {
+              </List.Section>
+              {groupTasksByGroup(tasksForDate).map((tasksForGroup, index, { length }) => {
                 const group = tasksForGroup[0].group || {};
                 const { description, color } = group;
+                const isFirstGroup = index === 0;
+                const isLastGroup = index === (length - 1);
 
                 return (
                   <S.GroupItem>
-                    <S.GroupItemColor color={color}/>
+                    <List.Color
+                      color={color}
+                      roundTop={isFirstGroup}
+                      roundBottom={isLastGroup}
+                    />
                     {description && (
-                      <Text.Caption
-                        color={'secondary'}
-                        style={{ display: 'black' }}
-                      >
+                      <S.GroupDescription>
                         {description}
-                      </Text.Caption>
+                      </S.GroupDescription>
                     )}
-                    <S.List>
-                      {tasksForGroup.map(task => (
-                        <Fragment>
-                          <S.TaskItem onClick={() => handleClickTask(task)}>
-                            <Text.Body>
-                              {task.description}
-                            </Text.Body>
-                            <S.TaskItemDivider/>
-                          </S.TaskItem>
-                        </Fragment>
-                      ))}
-                    </S.List>
+                    <List>
+                      {tasksForGroup.map((task, index, { length }) => {
+                        const isLastTask = isLastGroup && (index === (length - 1));
+
+                        return (
+                          <Fragment>
+                            <S.TaskItem onClick={() => handleClickTask(task)}>
+                              <S.TaskDescription>
+                                {task.description}
+                              </S.TaskDescription>
+                              <S.TaskDuration>
+                                <TaskDuration start={task.start} end={task.end}/>
+                              </S.TaskDuration>
+                              {!isLastTask && (
+                                <S.TaskItemDivider/>
+                              )}
+                            </S.TaskItem>
+                          </Fragment>
+                        )
+                      })}
+                    </List>
+                    {!isLastGroup && (
+                      <List.Divider/>
+                    )}
                   </S.GroupItem>
                 )
               })}

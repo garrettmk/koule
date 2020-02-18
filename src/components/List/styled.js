@@ -20,33 +20,37 @@ export const ListItemColor = styled.div`
   left: 0;
   bottom: 0;
   width: ${ props => props.theme.sizing.units(1/2) };
-  background-color: ${ props => props.theme.colors[props.color] || props.color };
+  background-color: ${ props => props.color ? props.theme.colors[props.color] : props.theme.colors.divider };
+  
+  border-top-left-radius: ${ props => props.roundTop ? props.theme.sizing.units(1/4) : 0 };
+  border-top-right-radius: ${ props => props.roundTop ? props.theme.sizing.units(1/4) : 0 };
+  border-bottom-left-radius: ${ props => props.roundBottom ? props.theme.sizing.units(1/4) : 0 };
+  border-bottom-right-radius: ${ props => props.roundBottom ? props.theme.sizing.units(1/4) : 0 };
 `;
 
 export const ListItem = styled.li`
   position: relative;
-  display: flex;
   align-items: center;
   box-sizing: border-box;
   min-height: ${ props => props.theme.sizing.units(6) };
-  padding: ${ props => `${props.theme.sizing.units(1)} ${props.theme.sizing.units(3)}` };
+  padding: ${ props => `${props.theme.sizing.units(1.5)} ${props.theme.sizing.units(3)}` };
   background-color: ${ props => props.theme.colors.background };
   cursor: pointer;
   font: ${ props => props.theme.fonts.body };
   
-  &:last-child ${ListItemDivider} {
-    display: none;
-  }
-  
-  &:first-child ${ListItemColor} {
-    border-top-left-radius: ${ props => props.theme.sizing.units(1/4) };
-    border-top-right-radius: ${ props => props.theme.sizing.units(1/4) };
-  }
-  
-  &:last-child ${ListItemColor} {
-    border-bottom-left-radius: ${ props => props.theme.sizing.units(1/4) };
-    border-bottom-right-radius: ${ props => props.theme.sizing.units(1/4) };
-  }
+  // &:last-child ${ListItemDivider} {
+  //   display: none;
+  // }
+  //
+  // &:first-child ${ListItemColor} {
+  //   border-top-left-radius: ${ props => props.theme.sizing.units(1/4) };
+  //   border-top-right-radius: ${ props => props.theme.sizing.units(1/4) };
+  // }
+  //
+  // &:last-child ${ListItemColor} {
+  //   border-bottom-left-radius: ${ props => props.theme.sizing.units(1/4) };
+  //   border-bottom-right-radius: ${ props => props.theme.sizing.units(1/4) };
+  // }
 `;
 
 export const Section = styled.li`

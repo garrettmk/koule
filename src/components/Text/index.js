@@ -19,7 +19,8 @@ Text.Subtitle = styled.p`
 
 Text.Body = styled.span`
   font: ${ props => props.theme.fonts.body };
-  color: ${ props => props.theme.colors.text[props.color || 'primary'] };  
+  color: ${ props => props.theme.colors.text[props.color || 'primary'] };
+  line-height: 1.3;
 `;
 
 Text.Caption = styled.span`

@@ -35,15 +35,23 @@ export const SUBSCRIBE_TASKS = gql`
 
 
 
-
+// Note that $before is nullable. This is would include the current task, which
+// may have a null start value
 export const SUBSCRIBE_TASKS_BY_DATE = gql`
-  subscription subscribeTasks($after: timestamptz!, $before: timestamptz!) {
+  subscription subscribeTasks($after: timestamptz!, $before: timestamptz) {
     tasks(
       where: {
-        _and: [
-          { start: { _gte: $after } },
-          { start: { _lte: $before } },
-        ]
+        _or: [
+          {
+            _and: [
+              { start: { _gte: $after } },
+              { start: { _lte: $before } },
+            ]
+          },
+          {
+            start: { _eq: $before },
+          }
+        ],
       },
       order_by: { start: asc }
     ) {

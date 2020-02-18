@@ -42,7 +42,7 @@ export default {
 
         const variables = {
           after: new Date(0).toISOString(),
-          before: new Date().toISOString()
+          before: null
         };
 
         const tasks$ = apollo

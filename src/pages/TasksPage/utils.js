@@ -68,10 +68,13 @@ export function formatTotalTaskTime(tasks = []) {
   return formatTotalMilliseconds(totalMilliseconds);
 }
 
-export function formatTaskDuration(task) {
-  const start = new Date(task.start);
-  const end = task.end ? new Date(task.end) : new Date();
+export function formatTaskDuration({ start, end }) {
+  if (!start)
+    return '';
 
-  const duration = end.getTime() - start.getTime();
+  const startDate = new Date(start);
+  const endDate = end ? new Date(end) : new Date();
+
+  const duration = endDate.getTime() - startDate.getTime();
   return formatTotalMilliseconds(duration);
 }
