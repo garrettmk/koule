@@ -1,7 +1,7 @@
 import React from 'react';
 import { ColorSelector, TextInput } from "../../components";
 import * as S from './styled';
-import { BackButton, PageHeader, State } from "../../containers";
+import { State } from "../../containers";
 import { useMachineProvider } from "../../hooks";
 
 
@@ -14,14 +14,14 @@ export function GroupPage() {
 
   return (
     <S.GroupPage>
-      <PageHeader>
-        <PageHeader.Navigation>
-          <BackButton/>
-        </PageHeader.Navigation>
-        <PageHeader.Title>
-          {group.id ? 'Edit Group' : 'Create Group'}
-        </PageHeader.Title>
-      </PageHeader>
+      {/*<PageHeader>*/}
+        {/*<PageHeader.Navigation>*/}
+          {/*<BackButton/>*/}
+        {/*</PageHeader.Navigation>*/}
+        {/*<PageHeader.Title>*/}
+          {/*{group.id ? 'Edit Group' : 'Create Group'}*/}
+        {/*</PageHeader.Title>*/}
+      {/*</PageHeader>*/}
 
       <State matches={'group.loading'}>
         Loading...

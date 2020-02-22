@@ -22,7 +22,6 @@ export default {
               { cond: 'isTaskRunning', target: 'running' },
               { cond: 'isTaskReady', target: 'ready' },
             ],
-            SAVE_TASK: undefined,
           }
         },
         ready: {
@@ -60,7 +59,7 @@ export default {
       on: {
         CREATE_TASK: { target: '.invalid', actions: 'createTask' },
         UPDATE_TASK: { target: '.invalid', actions: 'assignTaskUpdates' },
-        SAVE_TASK: '.saving',
+        SAVE_TASK: { cond: 'isTaskWithUpdatesValid', target: '.saving' },
         LOAD_TASK: '.loading',
         SUBSCRIBE_TASK_RESULT: { target: '.invalid', actions: 'assignSubscribeTaskResult' }
       }
@@ -195,6 +194,11 @@ export default {
 
     isTaskReady: ({ task }) => {
       const { description } = task.data;
+      return Boolean(description);
+    },
+
+    isTaskWithUpdatesValid: ({ task }, event) => {
+      const { description } = { ...task.data, ...event.data };
       return Boolean(description);
     },
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+export const Input = styled.input`  
   padding: ${ props => `calc(${props.theme.sizing.units(1)} - 2px)` };
   box-sizing: border-box;
   background-color: transparent;

@@ -1,5 +1,6 @@
 export const darkTheme = {
   colors: {
+    primary: '#4E89F5',
     background: '#1F1F1F',
     foreground: '#3B3C3D',
     text: {
@@ -50,3 +51,20 @@ export const lightTheme = {
 };
 
 export default darkTheme;
+
+//////////////////////////////////////////////////
+
+export const fromProp = (propName, selector, _default) =>
+  props => selector(props[propName] || _default);
+
+export const sizingUnits = multiplier =>
+  props => props.theme.sizing.units(multiplier);
+
+export const color = key =>
+  props => props.theme.colors[key];
+
+export const textColor = key =>
+  props => props.theme.colors.text[key];
+
+export const font = key =>
+  props => props.theme.fonts[key];

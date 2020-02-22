@@ -6,3 +6,5 @@ export * from './SignedOut';
 export * from './State';
 export * from './PageHeader';
 export * from './BackButton';
+export * from './TaskModal';
+export * from './TaskListItem';

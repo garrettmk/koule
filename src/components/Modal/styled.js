@@ -6,7 +6,7 @@ export const Overlay = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.5);
+  //background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const Modal = styled.div`

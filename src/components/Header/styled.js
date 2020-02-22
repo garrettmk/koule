@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Text } from "../../components";
+import { Text, LinearLoader } from "../../components";
 
 export const Root = styled.div`
   position: relative;
@@ -23,4 +23,11 @@ export const Title = styled(Text.Title)`
   left: 50%;
   transform: translate(-50%, -50%);
   color: ${ props => props.theme.colors.text.secondary };
+`;
+
+export const Loader = styled(LinearLoader)`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;

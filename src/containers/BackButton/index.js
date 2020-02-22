@@ -4,10 +4,18 @@ import { IconButton } from "../../components/";
 import * as S from './styled';
 
 export function BackButton(props) {
-  const { navigateBack, disabled } = useMachineProvider(({ send, context }) => ({
+  const { navigateBack, disabled, lastNavigationMessage } = useMachineProvider(({ send, context }) => ({
     navigateBack: () => send('NAVIGATE_BACK'),
-    disabled: context.navigationHistory.length < 2
+    disabled: context.navigationHistory.length < 2,
+    lastNavigationMessage: context.navigationHistory[context.navigationHistory.length - 2] || {},
   }));
+
+  const caption = {
+    NAVIGATE_GROUPS: 'Groups',
+    NAVIGATE_GROUP: 'Group',
+    NAVIGATE_TASKS: 'Tasks',
+    NAVIGATE_TASK: 'Task',
+  }[lastNavigationMessage.type];
 
   return (
     <IconButton
@@ -15,7 +23,12 @@ export function BackButton(props) {
       disabled={disabled}
       {...props}
     >
-      <S.BackIcon/>
+      <S.Row>
+        <S.BackIcon size={'small'}/>
+        <S.Caption>
+          {caption}
+        </S.Caption>
+      </S.Row>
     </IconButton>
   );
 }

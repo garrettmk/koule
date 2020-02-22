@@ -1,16 +1,17 @@
 import React from 'react';
 import { useMachineProvider } from "../../hooks";
-import { List, Text, Button } from '../../components';
-import { BackButton, PageHeader, State } from "../../containers";
+import { Button, List, Text } from '../../components';
+import { State, PageHeader } from "../../containers";
 import * as S from './styled';
 
 
 export function GroupsPage() {
-  const { send, groups, error } = useMachineProvider(({ send, context }) => ({
+  const { send, groups, error, isLoading } = useMachineProvider(({ state, send, context }) => ({
     send,
     groups: context.groups.data,
     error: context.groups.error,
     selectedGroup: context.group.data,
+    isLoading: state.matches('groups.loading'),
   }));
 
   const handleGroupClick = group => send({
@@ -22,18 +23,10 @@ export function GroupsPage() {
 
   return (
     <S.Page>
-      <PageHeader>
-        <PageHeader.Navigation>
-          <BackButton/>
-        </PageHeader.Navigation>
-        <PageHeader.Title>
-          Groups
-        </PageHeader.Title>
-      </PageHeader>
-
-      <State matches={'groups.loading'}>
-        Loading...
-      </State>
+      <PageHeader
+        title={'Groups'}
+        loading={isLoading}
+      />
       <State matches={'groups.error'}>
         Error: {error}
       </State>

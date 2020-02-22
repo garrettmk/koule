@@ -1,4 +1,3 @@
-export * from './Header';
 export * from './IconButton';
 export * from './List';
 export * from './MessageButton';
@@ -13,3 +12,7 @@ export * from './SubList';
 export * from './ColorSwatch';
 export * from './ColorSelector';
 export * from './TaskDuration';
+export * from './LinearProgress';
+export * from './Header';
+export * from './Modal';
+export * from './Select';

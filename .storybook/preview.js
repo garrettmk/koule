@@ -17,7 +17,7 @@ import { Screen } from '../src/components';
 addDecorator(withKnobs);
 addDecorator(storyFn => (
   <ThemeProvider theme={theme}>
-    <Screen style={{ padding: 72 }}>
+    <Screen style={{ padding: 72, boxSizing: 'border-box', }}>
       {storyFn()}
     </Screen>
   </ThemeProvider>

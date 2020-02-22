@@ -27,8 +27,16 @@ export default {
 
   states: {
     auth: {
-      initial: 'signedOut',
+      initial: 'checkingSession',
       states: {
+        checkingSession: {
+          invoke: {
+            id: 'check-session',
+            src: 'checkSessionService',
+            onDone: 'signedIn',
+            onError: 'signedOut'
+          }
+        },
         signedOut: {
           on: {
             '': { cond: 'isCallbackUrl', target: 'authenticating' },
@@ -115,6 +123,14 @@ export default {
   },
 
   services: {
+    checkSessionService: () => new Promise((resolve, reject) => {
+      webAuth.checkSession({}, (error, authResult) => {
+        if (error) reject(error);
+
+        resolve(authResult);
+      });
+    }),
+
     authService: (_, { loginRequired = true }) => {
       if (isCallbackUrl())
         return new Promise((resolve, reject) => {

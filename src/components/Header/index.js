@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import * as S from './styled';
 
-
-export const Header = styled.div`
-  height: ${ props => props.theme.sizing.header };
-  background-color: ${ props => props.theme.colors.background };
-  font: ${ props => props.theme.fonts.title };
-  color: ${ props => props.theme.colors.text.secondary };
-  text-align: center;
-  line-height: 72px;
-`;
+export const Header = S.Root;
+Header.Title = S.Title;
+Header.Navigation = S.LeftActions;
+Header.Loader = S.Loader;

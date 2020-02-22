@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styled';
 
-export const TextInput = React.forwardRef(({ value, onSubmit, ...props }, ref) => {
+export const TextInput = React.forwardRef(({ value = '', onSubmit, ...props }, ref) => {
   const [currentValue, setCurrentValue] = useState(value);
   useEffect(
     () => setCurrentValue(value),
