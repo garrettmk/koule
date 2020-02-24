@@ -17,6 +17,7 @@ export const ContentArea = styled.div`
 export const Pager = styled(PagerComponent)`
   position: relative;
   flex: 1 1 100%;
+  overscroll-behavior: none;
 `;
 
 export const Page = styled(Pager.Page)`
