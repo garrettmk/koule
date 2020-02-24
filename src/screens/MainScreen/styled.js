@@ -18,6 +18,7 @@ export const Pager = styled(PagerComponent)`
   position: relative;
   flex: 1 1 100%;
   overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 `;
 
 export const Page = styled(Pager.Page)`
