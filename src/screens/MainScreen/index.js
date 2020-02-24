@@ -7,7 +7,7 @@ import * as S from './styled';
 
 export function MainScreen() {
   return (
-    <Screen>
+    <S.Screen>
       <S.ContentArea>
         <Pager>
           <Page matches={'navigation.groups'}>
@@ -25,6 +25,6 @@ export function MainScreen() {
         </Pager>
       </S.ContentArea>
       <Navigation/>
-    </Screen>
+    </S.Screen>
   )
 }

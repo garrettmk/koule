@@ -2,43 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Header/styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LinearProgress/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LinearProgress/stories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/LinearProgress/styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Select/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Select/stories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskEditForm/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskEditForm/styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskListItem/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskListItem/stories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskListItem/styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskModal/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskModal/stories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/containers/TaskModal/styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/TasksPage/index_old.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StatusOnlyScreen/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StatusOnlyScreen/styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.storybook/preview.js" beforeDir="false" afterPath="$PROJECT_DIR$/.storybook/preview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TextInput/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TextInput/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TextInput/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TextInput/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/BackButton/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/BackButton/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/BackButton/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/BackButton/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/PageHeader/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/PageHeader/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/PageHeader/styled.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Screen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Screen/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/SignedIn/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/SignedOut/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/machines/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/machines/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/task.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/GroupPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/GroupPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/GroupsPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/GroupsPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TaskPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TaskPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TaskPage/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TaskPage/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TasksPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TasksPage/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/LoginScreen/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/LoginScreen/styled.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/MainScreen/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MainScreen/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/MainScreen/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MainScreen/styled.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,32 +22,143 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/TasksPage/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/containers/TaskListItem/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1889">
-              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/App.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="264">
+                  <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/StatusOnlyScreen/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="456">
+                  <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen/styled.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/MainScreen/styled.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/screens/MainScreen/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/containers/Navigation/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="48">
+                  <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/containers/Navigation/styled.js">
+              <provider selected="true" editor-type-id="text-editor" />
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/containers/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="48">
+                  <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/StatusOnlyScreen/styled.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="192">
+                  <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen/styled.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/machines/auth.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2295">
+                  <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+                  <folding>
+                    <element signature="e#0#29#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,14 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/machines/navigation.js" />
-        <option value="$PROJECT_DIR$/src/pages/Tasks/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/group.js" />
-        <option value="$PROJECT_DIR$/src/screens/MainScreen/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/index.js" />
-        <option value="$PROJECT_DIR$/src/queries/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/tasks.js" />
-        <option value="$PROJECT_DIR$/src/components/Text/index.js" />
         <option value="$PROJECT_DIR$/src/pages/TasksPage/utils.js" />
         <option value="$PROJECT_DIR$/src/components/TaskDuration/index.js" />
         <option value="$PROJECT_DIR$/src/components/List/styled.js" />
@@ -174,11 +252,19 @@
         <option value="$PROJECT_DIR$/src/containers/TaskEditForm/styled.js" />
         <option value="$PROJECT_DIR$/src/components/Select/index.js" />
         <option value="$PROJECT_DIR$/src/containers/TaskListItem/stories.js" />
-        <option value="$PROJECT_DIR$/src/containers/index.js" />
         <option value="$PROJECT_DIR$/src/containers/TaskListItem/styled.js" />
         <option value="$PROJECT_DIR$/src/machines/auth.js" />
         <option value="$PROJECT_DIR$/src/pages/TasksPage/index.js" />
         <option value="$PROJECT_DIR$/src/containers/TaskListItem/index.js" />
+        <option value="$PROJECT_DIR$/src/App.css" />
+        <option value="$PROJECT_DIR$/src/components/Screen/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/StatusOnlyScreen/styled.js" />
+        <option value="$PROJECT_DIR$/src/screens/StatusOnlyScreen/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/LoginScreen/styled.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/containers/index.js" />
+        <option value="$PROJECT_DIR$/src/screens/MainScreen/styled.js" />
+        <option value="$PROJECT_DIR$/src/screens/MainScreen/index.js" />
       </list>
     </option>
   </component>
@@ -202,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,6 +305,19 @@
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Screen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -225,7 +325,20 @@
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Navigation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
               <item name="TaskListItem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="machines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -240,11 +353,30 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="TasksPage" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="LoginScreen" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="MainScreen" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,7 +492,8 @@
       <workItem from="1582144619313" duration="258000" />
       <workItem from="1582165897621" duration="10396000" />
       <workItem from="1582219590899" duration="15000" />
-      <workItem from="1582385861337" duration="2574000" />
+      <workItem from="1582385861337" duration="3081000" />
+      <workItem from="1582512134185" duration="958000" />
     </task>
     <task id="LOCAL-00001" summary="Whole new app machine.">
       <created>1578689000796</created>
@@ -446,22 +579,29 @@
       <option name="project" value="LOCAL" />
       <updated>1582043565005</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Some UI experiments">
+      <created>1582398406755</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1582398406755</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="366617000" />
+    <option name="totallyTimeSpent" value="368082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2224" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22506666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32092556" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32092556" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -538,109 +678,10 @@
     <MESSAGE value="Many updates" />
     <MESSAGE value="UI updates. Enabled service worker." />
     <MESSAGE value="PWA updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="PWA updates" />
+    <MESSAGE value="Some UI experiments" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some UI experiments" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/TasksPage/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TaskDuration/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/List/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/group.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="144" column="14" lean-forward="true" selection-start-line="144" selection-start-column="14" selection-end-line="144" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/BackButton/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="89" selection-start-line="9" selection-start-column="89" selection-end-line="9" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/BackButton/styled.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/TaskModal/stories.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -873,13 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/TasksPage/index_old.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -950,16 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2510">
-          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/_app_old.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -971,7 +995,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/TasksPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
+        <state relative-caret-position="1080">
           <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
@@ -981,10 +1005,120 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/TaskListItem/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1889">
+        <state relative-caret-position="-2355">
           <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Screen/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/StatusOnlyScreen/styled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/StatusOnlyScreen/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen/styled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Navigation/styled.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Navigation/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/MainScreen/styled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/MainScreen/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
