@@ -49,3 +49,5 @@ export function Pager({ children, ...props }) {
     </S.Pager>
   );
 }
+
+Pager.Page = Page;

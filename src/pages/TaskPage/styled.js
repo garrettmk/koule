@@ -39,9 +39,14 @@ export const GroupContainer = styled.div`
   grid-gap: ${sizingUnits(2)};
 `;
 
-export const Duration = styled(Text.Title)`
-  align-self: center;
+export const DurationContainer = styled.div`
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+export const Duration = styled(Text.Title)``;
 
 export const ActionButton = styled(Button)`
   margin-top: ${sizingUnits(6)};

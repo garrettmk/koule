@@ -8,22 +8,20 @@ import * as S from './styled';
 export function MainScreen() {
   return (
     <S.Screen>
-      <S.ContentArea>
-        <Pager>
-          <Page matches={'navigation.groups'}>
-            <GroupsPage/>
-          </Page>
-          <Page matches={'navigation.group'}>
-            <GroupPage/>
-          </Page>
-          <Page matches={'navigation.tasks'}>
-            <TasksPage/>
-          </Page>
-          <Page matches={'navigation.task'}>
-            <TaskPage/>
-          </Page>
-        </Pager>
-      </S.ContentArea>
+      <S.Pager>
+        <S.Page matches={'navigation.groups'}>
+          <GroupsPage/>
+        </S.Page>
+        <S.Page matches={'navigation.group'}>
+          <GroupPage/>
+        </S.Page>
+        <S.Page matches={'navigation.tasks'}>
+          <TasksPage/>
+        </S.Page>
+        <S.Page matches={'navigation.task'}>
+          <TaskPage/>
+        </S.Page>
+      </S.Pager>
       <Navigation/>
     </S.Screen>
   )

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Button, TaskDuration, TextInput } from '../../components';
+import { Button, TaskDuration, TextInput, Select } from '../../components';
 import * as S from './styled';
 import { State } from "../../containers";
 import { useMachineProvider } from "../../hooks";
@@ -27,8 +27,6 @@ export function TaskPage() {
   const handleFinishTask = () => send('FINISH_TASK');
   const handleNewTask = () => send('CREATE_TASK');
 
-  const hasDuration = Boolean(task.start);
-
   return (
     <S.Page>
       <S.PageHeader
@@ -43,20 +41,22 @@ export function TaskPage() {
       </State>
 
       <State matches={['task.invalid', 'task.ready', 'task.running', 'task.finished', 'task.saving']}>
-        <S.Section>
-          Description
-        </S.Section>
-        <TextInput
-          placeholder={'Enter description'}
-          value={task.description}
-          onSubmit={handleChangeDescription}
-        />
+
+        <S.DurationContainer>
+          <S.Duration>
+            {task.start ? (
+              <TaskDuration start={task.start} end={task.end}/>
+            ) : (
+              '--:--'
+            )}
+          </S.Duration>
+        </S.DurationContainer>
 
         <S.Section>
           Group
         </S.Section>
         <S.GroupContainer>
-          <select value={task.group ? task.group.id : null} onChange={handleChangeGroup}>
+          <Select value={task.group ? task.group.id : null} onChange={handleChangeGroup}>
             <option value={null}>No group</option>
             {groups.map(group => (
               <option
@@ -66,20 +66,20 @@ export function TaskPage() {
                 {group.description}
               </option>
             ))}
-          </select>
+          </Select>
           <Button color={'blue'} onClick={() => send('NAVIGATE_GROUP')}>
             New Group
           </Button>
         </S.GroupContainer>
 
-        {hasDuration && (
-          <Fragment>
-            <S.Section>Duration</S.Section>
-            <S.Duration>
-              <TaskDuration start={task.start} end={task.end}/>
-            </S.Duration>
-          </Fragment>
-        )}
+        <S.Section>
+          Description
+        </S.Section>
+        <TextInput
+          placeholder={'Enter description'}
+          value={task.description}
+          onSubmit={handleChangeDescription}
+        />
 
         <State matches={'task.ready'}>
           <S.ActionButton onClick={handleStartTask}>
