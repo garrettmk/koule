@@ -1,5 +1,5 @@
 import React from 'react';
-import {SvgIcon} from '../../components';
+import {SvgIcon} from '../../atoms';
 
 export function ListIcon(props) {
   return (

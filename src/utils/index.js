@@ -48,3 +48,11 @@ export function makeUseOfServices(services) {
     {}
   );
 }
+
+
+const matchQuery = {
+  matchesAll: ['a', 'b'],
+  matchesNone: ['a', 'b'],
+  matchesAny: ['a', 'b'],   // a OR b
+  matches: ['a', 'b'],      // Same as matchesAll
+};

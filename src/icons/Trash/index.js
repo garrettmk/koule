@@ -1,5 +1,5 @@
 import React from 'react';
-import {SvgIcon} from '../../components';
+import {SvgIcon} from '../../atoms';
 
 export function TrashIcon(props) {
   return (

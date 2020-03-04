@@ -57,7 +57,7 @@ export default {
 
   actions: {
     assignToNavHistory: assign({
-      navigationHistory: (ctx, event) => ctx.navigationHistory.concat(event)
+      navigationHistory: (ctx, event) => ctx.navigationHistory.concat(event),
     }),
 
     popHistory: assign({

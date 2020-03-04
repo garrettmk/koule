@@ -1,4 +1,3 @@
-export * from './TasksPage';
+export * from './LoginPage';
+export * from './TaskListPage';
 export * from './TaskPage';
-export * from './GroupsPage';
-export * from './GroupPage';

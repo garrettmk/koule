@@ -3,7 +3,7 @@ import { select } from "@storybook/addon-knobs";
 import {ListIcon} from './index.js';
 
 export default {
-  title: 'ListIcon',
+  title: 'Icons / ListIcon',
 };
 
 export const icon2 = () =>

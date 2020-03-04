@@ -3,7 +3,7 @@ import { select } from "@storybook/addon-knobs";
 import {TrashIcon} from './index.js';
 
 export default {
-  title: 'TrashIcon',
+  title: 'Icons / TrashIcon',
 };
 
 export const icon2 = () =>

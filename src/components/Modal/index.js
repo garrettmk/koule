@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import React from 'react';
 import { createPortal } from "react-dom";
 import * as S from './styled';
 

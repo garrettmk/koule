@@ -3,7 +3,7 @@ import { select } from "@storybook/addon-knobs";
 import { NavigateBackIcon } from './index.js';
 
 export default {
-  title: 'NavigateBackIcon',
+  title: 'Icons / NavigateBackIcon',
 };
 
 export const icon = () =>

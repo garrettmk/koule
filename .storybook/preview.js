@@ -1,24 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
 import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from "@storybook/addon-knobs";
 import { ThemeProvider } from "styled-components";
-import theme from '../src/theme.js';
-import { Screen } from '../src/components';
+import { space, palette, theme } from '../src/theme';
 
-// addParameters({ viewport: { defaultViewport: 'responsive' } });
-//
-// function loadStories() {
-//   const ctx = require.context('../src', true, /stories\.js$/);
-//   ctx.keys().forEach(filename => ctx(filename));
-// }
-//
-// configure(loadStories, module);
+const Background = styled.div`
+  background-color: ${palette.background};
+  padding: ${space.units(8)};
+  box-sizing: border-box;
+`;
 
+addParameters({ viewport: { defaultViewport: 'responsive' } });
 addDecorator(withKnobs);
 addDecorator(storyFn => (
   <ThemeProvider theme={theme}>
-    <Screen style={{ padding: 72, boxSizing: 'border-box', }}>
+    <Background>
       {storyFn()}
-    </Screen>
+    </Background>
   </ThemeProvider>
 ));
