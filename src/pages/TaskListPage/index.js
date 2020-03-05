@@ -16,37 +16,35 @@ export function TaskListPage(props) {
 
   return (
     <S.TaskListPage {...props}>
-      <S.ScrollContainer>
-        <S.List>
-          {groupTasksByDay(tasks).map(tasksForDay => {
-            const date = new Date(tasksForDay[0].start);
+      <S.List>
+        {groupTasksByDay(tasks).map(tasksForDay => {
+          const date = new Date(tasksForDay[0].start);
 
-            return (
-              <Fragment>
-                <S.ListSection>
-                  {formatDate(date, "EEEE, MMM. do")}
-                </S.ListSection>
-                {groupTasksByGroup(tasksForDay).map((tasksForGroup, idx) => {
-                  const group = groups.find(group => group.id === tasksForGroup[0].group_id);
+          return (
+            <Fragment>
+              <S.ListSection>
+                {formatDate(date, "EEEE, MMM. do")}
+              </S.ListSection>
+              {groupTasksByGroup(tasksForDay).map((tasksForGroup, idx) => {
+                const group = groups.find(group => group.id === tasksForGroup[0].group_id);
 
-                  return (
-                    <Fragment>
-                      <GroupItem group={group} tasks={tasksForGroup}>
-                        {tasksForGroup.map(task => (
-                          <TaskItem
-                            task={task}
-                            onClick={navigateTask(task)}
-                          />
-                        ))}
-                      </GroupItem>
-                    </Fragment>
-                  )
-                })}
-              </Fragment>
-            )
-          })}
-        </S.List>
-      </S.ScrollContainer>
+                return (
+                  <Fragment>
+                    <GroupItem group={group} tasks={tasksForGroup}>
+                      {tasksForGroup.map(task => (
+                        <TaskItem
+                          task={task}
+                          onClick={navigateTask(task)}
+                        />
+                      ))}
+                    </GroupItem>
+                  </Fragment>
+                )
+              })}
+            </Fragment>
+          )
+        })}
+      </S.List>
     </S.TaskListPage>
   )
 }

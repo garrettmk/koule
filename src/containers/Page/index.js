@@ -8,6 +8,7 @@ const PageComponent = styled(animated.div)`
   left: 0;
   bottom: 0;
   right: 0;
+  overflow-y: auto;
 `;
 
 export function Page ({ not, matches, ...props }) {

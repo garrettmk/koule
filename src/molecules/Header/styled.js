@@ -3,7 +3,7 @@ import { Title as TitleComponent, Button, LinearProgress } from "../../atoms";
 import { space, palette, fonts } from "../../theme";
 
 export const Frame = styled.div`
-  position: relative;  
+  position: relative;
   background-color: ${palette.background};
   min-height: ${space.units(7)};
   box-sizing: border-box;
