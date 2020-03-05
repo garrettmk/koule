@@ -9,6 +9,7 @@ const PageComponent = styled(animated.div)`
   bottom: 0;
   right: 0;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `;
 
 export function Page ({ not, matches, ...props }) {

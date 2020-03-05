@@ -4,12 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/theme/theme.js" line="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="">
+    <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="UI tweaks">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Page/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Page/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/molecules/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/TaskListPage/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TaskListPage/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/TaskListPage/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
@@ -64,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/containers/Page/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            <state relative-caret-position="264">
+              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -115,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="360">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -236,11 +234,11 @@
         <option value="$PROJECT_DIR$/src/containers/Pager/index.js" />
         <option value="$PROJECT_DIR$/src/pages/TaskPage/index.js" />
         <option value="$PROJECT_DIR$/src/pages/TaskListPage/components/GroupItem/index.js" />
-        <option value="$PROJECT_DIR$/src/containers/Page/index.js" />
         <option value="$PROJECT_DIR$/src/containers/Pager/styled.js" />
         <option value="$PROJECT_DIR$/src/molecules/Header/styled.js" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/pages/TaskListPage/index.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/containers/Page/index.js" />
       </list>
     </option>
   </component>
@@ -484,7 +482,7 @@
       <workItem from="1583174552443" duration="14000" />
       <workItem from="1583190857942" duration="53348000" />
       <workItem from="1583349307558" duration="129000" />
-      <workItem from="1583358294346" duration="18925000" />
+      <workItem from="1583358294346" duration="19943000" />
     </task>
     <task id="LOCAL-00001" summary="Whole new app machine.">
       <created>1578689000796</created>
@@ -633,11 +631,18 @@
       <option name="project" value="LOCAL" />
       <updated>1583385347388</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="UI tweaks">
+      <created>1583386553560</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1583386553560</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="449220000" />
+    <option name="totallyTimeSpent" value="450238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -1151,16 +1156,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Page/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Pager/styled.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -1175,13 +1170,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1201,6 +1189,23 @@
           <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Page/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
