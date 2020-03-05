@@ -68,11 +68,9 @@ export function TaskPage(props) {
         />
         <datalist id={'group-names-list'}>
           {groups.map(group => (
-            <select>
-              <option key={group.id} value={group.description}>
-                {group.description}
-              </option>
-            </select>
+            <option key={group.id} value={group.description}>
+              {group.description}
+            </option>
           ))}
         </datalist>
       </S.ActivityFrame>

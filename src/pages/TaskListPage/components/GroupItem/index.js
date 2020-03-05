@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { Body } from "../../../../atoms";
-import { Collapse } from "../../../../containers/Collapse";
 import * as icons from '../../../../icons';
 import * as S from './styled';
 import { formatTotalTaskTime } from "../../utils";
@@ -26,13 +25,11 @@ export function GroupItem({ children, group = {}, tasks = [], ...props }) {
           {formatTotalTaskTime(tasks)}
         </Body>
       </S.PrimaryItem>
-      <li>
-        <S.CollapseOuter open={open}>
-          <S.CollapseInner>
-            {children}
-          </S.CollapseInner>
-        </S.CollapseOuter>
-      </li>
+      <S.CollapseOuter open={open}>
+        <S.CollapseInner>
+          {children}
+        </S.CollapseInner>
+      </S.CollapseOuter>
     </Fragment>
   );
 }
