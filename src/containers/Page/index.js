@@ -9,6 +9,7 @@ const PageComponent = styled(animated.div)`
   bottom: 0;
   right: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 `;
 
