@@ -26,18 +26,20 @@ export function TaskListPage(props) {
                 <S.ListSection>
                   {formatDate(date, "EEEE, MMM. do")}
                 </S.ListSection>
-                {groupTasksByGroup(tasksForDay).map(tasksForGroup => {
+                {groupTasksByGroup(tasksForDay).map((tasksForGroup, idx) => {
                   const group = groups.find(group => group.id === tasksForGroup[0].group_id);
 
                   return (
-                    <GroupItem group={group} tasks={tasksForGroup}>
-                      {tasksForGroup.map(task => (
-                        <TaskItem
-                          task={task}
-                          onClick={navigateTask(task)}
-                        />
-                      ))}
-                    </GroupItem>
+                    <Fragment>
+                      <GroupItem group={group} tasks={tasksForGroup}>
+                        {tasksForGroup.map(task => (
+                          <TaskItem
+                            task={task}
+                            onClick={navigateTask(task)}
+                          />
+                        ))}
+                      </GroupItem>
+                    </Fragment>
                   )
                 })}
               </Fragment>

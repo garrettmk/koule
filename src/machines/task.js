@@ -107,7 +107,7 @@ export default {
         if (task.subscription)
           task.subscription.stop();
 
-        const subscribeToId = event.id || task.data.id;
+        const subscribeToId = event.id;// || task.data.id;
 
         const task$ = (subscribeToId
           ? apollo.subscribe({ query: SUBSCRIBE_TASK_BY_ID, variables: { id: subscribeToId } })
@@ -157,11 +157,15 @@ export default {
         end,
       } = { ...task.data, ...eventData };
 
-      const group = eventData.group || task.data.group || {};
+      const group_id =
+        eventData.group ? eventData.group.id :
+        eventData.group_id ? eventData.group_id :
+        task.data.group ? task.data.group.id :
+        task.data.group_id;
 
       const dataIfUpdating = {
         id: task.data.id,
-        group_id: group.id,
+        group_id,
         description,
         start,
         end
@@ -169,7 +173,7 @@ export default {
 
       const dataIfCreating = {
         id: eventData.id || cuid(),
-        group_id: group.id,
+        group_id,
         description,
         start,
         end

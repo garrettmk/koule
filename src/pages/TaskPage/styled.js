@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { SectionDivider, Button } from "../../atoms";
 import { Page } from "../../containers";
-import { SectionDivider } from "../../atoms/SectionDivider";
-import { space } from "../../theme";
+import { fonts, palette, space } from "../../theme";
 
 export const TaskPage = styled(Page)`
   display: flex;
@@ -20,4 +20,12 @@ export const ActivityFrame = styled.div`
   grid-template-columns: auto 1fr;
   grid-gap: ${space.units(2)};
   margin-bottom: ${space.units(4)};
+`;
+
+export const ActionButton = styled(Button)`
+  margin: ${space.units(3)} 0;
+  background-color: ${palette.primary};
+  color: ${palette.textPrimaryLight};
+  font: ${fonts.body};
+  text-transform: uppercase;
 `;

@@ -1,6 +1,6 @@
 import cuid from 'cuid';
 import { assign, spawn } from "xstate";
-import { CREATE_GROUP, SUBSCRIBE_GROUP, UPDATE_GROUP } from "../queries";
+import { CREATE_GROUP, SUBSCRIBE_GROUP, UPDATE_GROUP, UPSERT_GROUP } from "../queries";
 
 export default {
   context: {
@@ -128,27 +128,17 @@ export default {
   },
 
   services: {
-    saveGroup: ({ group, apollo }, { data: eventData }) => {
+    saveGroup: ({ group, apollo }, event) => {
       const {
+        id = cuid(),
         color,
+        icon,
         description
-      } = { ...group.data, ...eventData };
+      } = { ...group.data, ...event.data };
 
-      const dataIfUpdating = {
-        id: group.data.id,
-        color,
-        description,
-      };
+      const variables = { id, color, icon, description };
 
-      const dataIfCreating = {
-        id: eventData.id || cuid(),
-        color,
-        description
-      };
-
-      return group.data.id
-        ? apollo.mutate({ mutation: UPDATE_GROUP, variables: dataIfUpdating })
-        : apollo.mutate({ mutation: CREATE_GROUP, variables: dataIfCreating });
+      return apollo.mutate({ mutation: UPSERT_GROUP, variables });
     }
   },
 

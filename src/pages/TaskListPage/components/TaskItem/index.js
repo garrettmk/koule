@@ -9,8 +9,8 @@ export function TaskItem({ task = {}, ...props }) {
       <Body2>{description}</Body2>
       <Body2 monospaced>
         <ElapsedTime
-          start={new Date(start)}
-          end={new Date(end)}
+          start={start}
+          end={end}
         />
       </Body2>
     </ListItemSecondary>

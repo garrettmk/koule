@@ -18,8 +18,16 @@ export const Duration = styled(ElapsedTime)`
   text-align: center;
 `;
 
-export const TimeValue = styled(Label)`
+export const TimeLabel = styled(Label)`
+  white-space: nowrap;
+  margin: 0 ${space.units(2)};
+`;
+
+export const TimeValue = styled.span`
+  font: ${fonts.label};
   color: ${palette.textPrimary};
+  //text-transform: none;
+  //letter-spacing: 0;
 `;
 
 export const Spacer = styled.span`

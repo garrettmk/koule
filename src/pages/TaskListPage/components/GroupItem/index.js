@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import { ListItemPrimary, Body } from "../../../../atoms";
+import { Body } from "../../../../atoms";
 import { Collapse } from "../../../../containers/Collapse";
 import * as icons from '../../../../icons';
-import { RobotIcon } from "../../../../icons";
 import * as S from './styled';
 import { formatTotalTaskTime } from "../../utils";
 
@@ -12,14 +11,12 @@ export function GroupItem({ children, group = {}, tasks = [], ...props }) {
   const toggleOpen = () => setOpen(!open);
 
   const { icon, description } = group;
-  const iconElement = icon
-    ? React.createElement(icons[icon])
-    : <RobotIcon color={description ? 'primary' : 'textSecondary'}/>;
+  const iconElement = icon && React.createElement(icons[icon]);
 
   return (
     <Fragment>
       <S.PrimaryItem open={open} onClick={toggleOpen} {...props}>
-        {iconElement}
+        {iconElement || <S.DummyIcon/>}
         {description ? (
           <Body>{description}</Body>
         ) : (
@@ -31,9 +28,9 @@ export function GroupItem({ children, group = {}, tasks = [], ...props }) {
       </S.PrimaryItem>
       <li>
         <S.CollapseOuter open={open}>
-          <Collapse.Inner>
+          <S.CollapseInner>
             {children}
-          </Collapse.Inner>
+          </S.CollapseInner>
         </S.CollapseOuter>
       </li>
     </Fragment>

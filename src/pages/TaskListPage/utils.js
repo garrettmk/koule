@@ -6,8 +6,10 @@ export function groupTasksByDay(tasks) {
       return [[task]];
 
     const lastTask = tasks[index - 1];
+    const lastStartDate = new Date(lastTask.start);
+    const thisStartDate = task.start ? new Date(task.start) : new Date();
 
-    if (!isSameDay(new Date(lastTask.start), new Date(task.start)))
+    if (!isSameDay(lastStartDate, thisStartDate))
       return [...result, [task]];
 
     result[result.length - 1].push(task);

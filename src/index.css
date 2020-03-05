@@ -5,6 +5,10 @@ html, body, #root {
   background-color: #24201A;
 }
 
+body {
+  overscroll-behavior: none;
+}
+
 #root {
   display: grid;
   grid-template-rows: auto 1fr;

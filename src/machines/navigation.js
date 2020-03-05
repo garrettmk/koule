@@ -36,6 +36,9 @@ export default {
             send((_, { id }) => ({ type: 'LOAD_TASK', id })),
           ],
         },
+        chooseIcon: {
+          entry: 'assignToNavHistory'
+        },
         back: {
           entry: 'navigateBack',
           exit: 'popHistory'
@@ -50,6 +53,7 @@ export default {
         ],
         NAVIGATE_TASKS: '.tasks',
         NAVIGATE_TASK: '.task',
+        NAVIGATE_CHOOSE_ICON: '.chooseIcon',
         NAVIGATE_BACK: { cond: 'hasHistory', target: '.back' },
       }
     }

@@ -7,6 +7,7 @@ const FRAGMENT_TASK_FIELDS = gql`
     group {
       id
       color
+      icon
       description
     }
     start
@@ -19,6 +20,7 @@ const FRAGMENT_GROUP_FIELDS = gql`
   fragment GroupFields on groups {
     id
     color
+    icon
     description
   }
 `;
@@ -154,10 +156,39 @@ export const SUBSCRIBE_GROUP = gql`
   ${FRAGMENT_GROUP_FIELDS}
 `;
 
+export const UPSERT_GROUP = gql`
+  mutation upsertGroup(
+    $id: String!
+    $color: String
+    $icon: String
+    $description: String!
+  ){
+    insert_groups(
+      objects: [{
+        id: $id
+        color: $color
+        icon: $icon
+        description: $description
+      }]
+      on_conflict: {
+        constraint: groups_pkey
+        update_columns: [color, icon, description]
+      }
+    ){
+      returning {
+        ...GroupFields
+      }
+    }
+  }
+
+  ${FRAGMENT_GROUP_FIELDS}
+`;
+
 export const UPDATE_GROUP = gql`
   mutation updateGroup(
-    $id: String!,
+    $id: String!
     $color: String
+    $icon: String
     $description: String
   ){
     update_groups(
@@ -177,10 +208,11 @@ export const UPDATE_GROUP = gql`
 `;
 
 export const CREATE_GROUP = gql`
-  mutation createGroup($id: String!, $color: String, $description: String!) {
+  mutation createGroup($id: String!, $color: String, $icon: String, $description: String!) {
     insert_groups(objects: {
       id: $id,
       color: $color,
+      icon: $icon,
       description: $description
     }) {
       returning {
