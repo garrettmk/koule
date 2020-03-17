@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { SectionDivider, Button } from "../../atoms";
+import { Button, SectionDivider, TextInput } from "../../atoms";
 import { Page } from "../../containers";
 import { fonts, palette, space } from "../../theme";
 
@@ -9,9 +9,14 @@ export const TaskPage = styled(Page)`
   padding: ${space.units(2)};
 `;
 
-export const Section = styled(SectionDivider)`
+export const SectionHeader = styled(SectionDivider)`
   margin-left: ${space.units(-2)};
   margin-right: ${space.units(-2)};
+`;
+
+export const DescriptionInput = styled(TextInput)`
+  margin-bottom: ${space.units(2)};
+  width: 100%;
 `;
 
 export const ActivityFrame = styled.div`
@@ -19,7 +24,7 @@ export const ActivityFrame = styled.div`
   grid-template-rows: auto;
   grid-template-columns: auto 1fr;
   grid-gap: ${space.units(2)};
-  margin-bottom: ${space.units(4)};
+  margin-bottom: ${space.units(2)};
 `;
 
 export const ActionButton = styled(Button)`

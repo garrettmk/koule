@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionDivider, TextInput, Button } from "../../atoms";
+import { TextInput, Button, SectionDivider } from "../../atoms";
 import { TaskDuration } from "./components";
 import { State } from "../../containers/";
 import { useMachineProvider } from "../../hooks";
@@ -48,9 +48,13 @@ export function TaskPage(props) {
         end={end}
       />
 
-      <S.Section>
-        Activity
-      </S.Section>
+      <S.SectionHeader>Description</S.SectionHeader>
+      <S.DescriptionInput
+        value={description}
+        onSubmit={updateDescription}
+      />
+
+      <S.SectionHeader>Activity</S.SectionHeader>
       <S.ActivityFrame>
         <Button outlined disabled={!group} onClick={navigateChooseIcon}>
           {(() => {
@@ -74,14 +78,6 @@ export function TaskPage(props) {
           ))}
         </datalist>
       </S.ActivityFrame>
-
-      <S.Section>
-        Description
-      </S.Section>
-      <TextInput
-        value={description}
-        onSubmit={updateDescription}
-      />
 
       <State not matches={'task.invalid'}>
         <S.ActionButton disabled={!action} onClick={() => send(action)}>

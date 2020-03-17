@@ -8,6 +8,7 @@ import { getMainDefinition } from "apollo-utilities";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { split } from 'apollo-link';
+import { respond } from "xstate/lib/actions";
 
 let webAuth = new auth0.WebAuth(authConfig);
 
@@ -64,6 +65,7 @@ export default {
             send('SIGNED_IN')
           ],
           on: {
+            GET_TOKEN: respond((ctx) => ({ type: 'ID_TOKEN', idToken: ctx.idToken })),
             SIGN_OUT: { target: 'signedOut', actions: 'signOut' }
           }
         }
@@ -107,7 +109,7 @@ export default {
         return new ApolloClient({
           cache: new InMemoryCache(),
           link,
-          defaultOptions: { fetchPoliciy: 'network-only' }
+          defaultOptions: { fetchPolicy: 'network-only' }
         })
       }
     }),

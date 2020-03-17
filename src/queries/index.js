@@ -223,3 +223,28 @@ export const CREATE_GROUP = gql`
   
   ${FRAGMENT_GROUP_FIELDS}
 `;
+
+export const QUERY_TASKS_BY_DATE = gql`
+  query queryTasksByDate($after: timestamptz!, $before: timestamptz) {
+    tasks(
+      where: {
+        _or: [
+          {
+            _and: [
+              { start: { _gte: $after } },
+              { start: { _lte: $before } },
+            ]
+          },
+          {
+            start: { _eq: $before },
+          }
+        ],
+      },
+      order_by: { start: asc }
+    ) {
+      ...TaskFields
+    }
+  }
+
+  ${FRAGMENT_TASK_FIELDS}
+`;

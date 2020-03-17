@@ -4,3 +4,4 @@ export * from './State';
 export * from './MachineProvider';
 export * from './Collapse';
 export * from './Flex';
+export * from './Modal';

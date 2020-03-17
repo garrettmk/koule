@@ -9,12 +9,8 @@ export const TaskListPage = styled(Page)`
   grid-template-columns: 1fr;
 `;
 
-export const ScrollContainer = styled.div`
-  overflow-y: auto;
-`;
-
 export const List = styled(ListComponent)`
-  margin-bottom: ${space.units(16)};
+  padding-bottom: 50vh;
 `;
 
 export const ListSection = styled.li`
@@ -26,11 +22,4 @@ export const ListSection = styled.li`
   letter-spacing: 2px;
   color: ${palette.textSecondary};
   text-transform: uppercase;
-`;
-
-export const GroupItemSeparator = styled.li`
-  margin: 0;
-  padding: 0;
-  height: 1px;
-  background-color: ${palette.divider};
 `;
