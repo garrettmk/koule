@@ -60,7 +60,7 @@ export function formatTotalTaskTime(tasks = []) {
   const totalMilliseconds = tasks.reduce((result, task) =>
     result
     + (task.end  ? new Date(task.end) : new Date).getTime()
-    - new Date(task.start).getTime(),
+    - (task.start ? new Date(task.start) : new Date).getTime(),
     0
   );
 

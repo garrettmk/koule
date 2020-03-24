@@ -9,37 +9,47 @@ import cuid from "cuid";
 
 
 export function TaskPage(props) {
-  const { state, send, task, groups } = useMachineProvider(({ state, send, context }) => ({
-    state,
-    send,
-    task: context.task.data,
-    groups: context.groups.data,
-  }));
+  const { taskList, task, groupList, send } = useMachineProvider();
+  const groups = groupList.context.groupList;
+  const { id, group_id, description, start, end } = task.context;
+  const group = groups.find(g => g.id === group_id);
 
-  const updateDescription = description => send({ type: 'SAVE_TASK', data: { description } });
+  const setDescription = description => send({ type: 'SET_TASK_DESCRIPTION', value: description });
+  const setGroupId = groupId => send({ type: 'SET_TASK_GROUP_ID', value: groupId });
+  const createGroup = ({ id, description }) => send({ type: 'CREATE_GROUP', variables: { id, description }});
+
   const updateGroup = description => {
     if (!description)
-      return send({ type: 'SAVE_TASK', data: { group_id: null } });
+      return setGroupId(null);
 
     // Try to find an existing group first
     const existingGroup = groups.find(group => group.description.toLowerCase() === description.toLowerCase());
     if (existingGroup)
-      return send({ type: 'SAVE_TASK', data: { group_id: existingGroup.id } });
+      return setGroupId(existingGroup.id);
 
     // Create a new group
     const id = cuid();
-    send({ type: 'SAVE_GROUP', data: { id, description } });
-    send({ type: 'SAVE_TASK', data: { group_id: id } });
+    createGroup({ id, description });
+    setGroupId(id);
   };
 
+  const isLastTask = id === taskList.context.tasks[taskList.context.tasks.length - 1].id;
   const navigateChooseIcon = () => send('NAVIGATE_CHOOSE_ICON');
-  const [label, action] =
-    state.matches('task.ready') ? ['Start', 'START_TASK'] :
-    state.matches('task.running') ? ['Finish', 'FINISH_TASK'] :
-    state.matches('task.finished') ? ['New', 'LOAD_TASK'] :
-    ['Please wait', null];
+  const startTask = () => send('START_TASK');
+  const finishTask = () => send('FINISH_TASK');
+  const newTask = () => send('CREATE_TASK');
+  const nextTask = () => {
+    const index = taskList.context.tasks.findIndex(t => t.id === id);
+    const nextId = taskList.context.tasks[index + 1].id;
+    send({ type: 'NAVIGATE_TASK', id: nextId });
+  };
 
-  const { start, end, description, group } = task;
+  const [label, action] =
+    task.matches('ready') ? ['Start', startTask] :
+    task.matches('running') ? ['Finish', finishTask] :
+    task.matches('finished') && isLastTask ? ['New Task', newTask] :
+    task.matches('finished') ? ['Next', nextTask] :
+    ['Please wait', null];
 
   return (
     <S.TaskPage {...props}>
@@ -51,7 +61,7 @@ export function TaskPage(props) {
       <S.SectionHeader>Description</S.SectionHeader>
       <S.DescriptionInput
         value={description}
-        onSubmit={updateDescription}
+        onSubmit={setDescription}
       />
 
       <S.SectionHeader>Activity</S.SectionHeader>
@@ -64,7 +74,7 @@ export function TaskPage(props) {
           })()}
         </Button>
         <TextInput
-          disabled={!task.id}
+          disabled={!id}
           placeholder={'Activity Name'}
           value={group ? group.description : ''}
           onSubmit={updateGroup}
@@ -79,11 +89,11 @@ export function TaskPage(props) {
         </datalist>
       </S.ActivityFrame>
 
-      <State not matches={'task.invalid'}>
-        <S.ActionButton disabled={!action} onClick={() => send(action)}>
+      {!task.matches('invalid') && (
+        <S.ActionButton disabled={!action} onClick={action}>
           {label}
         </S.ActionButton>
-      </State>
+      )}
     </S.TaskPage>
   );
 }

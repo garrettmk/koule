@@ -4,24 +4,18 @@ import { HeaderComponent } from './component';
 import { titleForNavEvent } from "./utils";
 
 export function Header() {
-  const { state, navigateBack, currentNavEvent, lastNavEvent } = useMachineProvider(({ state, send, context }) => ({
-    state,
-    currentNavEvent: context.navigationHistory[context.navigationHistory.length - 1] || {},
-    lastNavEvent: context.navigationHistory[context.navigationHistory.length - 2] || {},
-    navigateBack: () => send('NAVIGATE_BACK'),
-  }));
+  const { send, ui, auth, api, nav } = useMachineProvider();
+
+  const currentNavEvent = nav.context.history[nav.context.history.length - 1] || {};
+  const lastNavEvent = nav.context.history[nav.context.history.length - 2] || {};
 
   const currentTitle = titleForNavEvent(currentNavEvent);
   const lastTitle = titleForNavEvent(lastNavEvent);
+  const navigateBack = () => send('NAVIGATE_BACK');
   const isLoading =
-    state.matches('auth.authenticating') ||
-    state.matches('auth.checkingSession') ||
-    state.matches('tasks.loading') ||
-    state.matches('groups.loading') ||
-    state.matches('task.loading') ||
-    state.matches('task.saving') ||
-    state.matches('group.loading') ||
-    state.matches('group.saving');
+    auth.matches('authenticating') ||
+    (api && api.matches('pending')) ||
+    (ui && ui.matches('loading'));
 
   return (
     <HeaderComponent

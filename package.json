@@ -27,6 +27,7 @@
     "rxjs": "^6.5.4",
     "styled-components": "^4.4.1",
     "subscriptions-transport-ws": "^0.9.16",
+    "worker-loader": "^2.0.0",
     "xstate": "^4.7.5"
   },
   "scripts": {

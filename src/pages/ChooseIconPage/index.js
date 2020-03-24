@@ -6,13 +6,19 @@ import { useMachineProvider } from "../../hooks";
 
 
 export function ChooseIconPage(props) {
-  const { send, group } = useMachineProvider(({ send, context }) => ({
-    send,
-    group: context.task.data.group
-  }));
+  const { send, task, groupList } = useMachineProvider();
+  const { group_id } = task.context;
+  const group = groupList.context.groupList.find(group => group.id === group_id) || {};
 
-  const navigateBack = () => send('NAVIGATE_BACK');
-  const updateIcon = icon => () => send({ type: 'SAVE_GROUP', data: { ...group, icon } });
+  const setIcon = icon => () => send({
+    type: 'UPDATE_GROUP',
+    variables: {
+      id: group.id,
+      color: group.color,
+      description: group.description,
+      icon
+    }
+  });
 
   return (
     <S.ChooseIconPage {...props}>
@@ -20,7 +26,7 @@ export function ChooseIconPage(props) {
         {Object.entries(icons).map(([name, component]) => (
           <S.IconButton outlined={name === group.icon}>
             {React.createElement(component, {
-              onClick: updateIcon(name)
+              onClick: setIcon(name)
             })}
           </S.IconButton>
         ))}

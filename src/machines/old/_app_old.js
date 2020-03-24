@@ -17,9 +17,9 @@ import {
   UPDATE_GROUP,
   UPDATE_TASK,
   CREATE_TASK
-} from "../queries";
+} from "../../queries";
 import auth0 from 'auth0-js';
-import authConfig from '../config/auth';
+import authConfig from '../../config/auth';
 import cuid from 'cuid';
 import { Observable } from "rxjs";
 import { SubscriptionClient } from "subscriptions-transport-ws";

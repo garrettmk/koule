@@ -1,5 +1,5 @@
 import { spawn, assign } from "xstate";
-import { SUBSCRIBE_TASKS, SUBSCRIBE_TASKS_BY_DATE } from "../queries";
+import { SUBSCRIBE_TASKS, SUBSCRIBE_TASKS_BY_DATE } from "../../queries";
 
 export default {
   context: {

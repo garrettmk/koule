@@ -1,6 +1,6 @@
 import cuid from 'cuid';
 import { spawn, assign } from "xstate";
-import { CREATE_TASK, SUBSCRIBE_CURRENT_TASK, SUBSCRIBE_TASK_BY_ID, UPDATE_TASK } from "../queries";
+import { CREATE_TASK, SUBSCRIBE_CURRENT_TASK, SUBSCRIBE_TASK_BY_ID, UPDATE_TASK } from "../../queries";
 
 export default {
   context: {

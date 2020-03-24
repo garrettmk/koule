@@ -1,11 +1,13 @@
-import React, { useCallback, useContext } from 'react';
+import React, { useMemo, useContext } from 'react';
 import {MachineProviderContext} from "../containers/MachineProvider";
 import {makeUseOfServices} from "../utils";
+import { useService } from "@xstate/react/lib";
 
+const defaultSelector = value => value;
 
-export function useMachineProvider(selector) {
-  const { state, context, send } = useContext(MachineProviderContext);
-  return selector({ state, context, send });
+export function useMachineProvider(selector = defaultSelector) {
+  const contextValue = useContext(MachineProviderContext);
+  return selector(contextValue);
 }
 
 export function useServiceProvider(selector) {
@@ -15,15 +17,9 @@ export function useServiceProvider(selector) {
   return makeUseOfServices(selected);
 }
 
-export function useUiMachine() {
-  const { state, context, send } = useContext(MachineProviderContext);
-  const sendUi = useCallback(
-    event => send({
-      ...event,
-      type: `${event.originalTarget.id}On${event.type.capitalize()}`
-    }),
-    send
-  );
+export function useUiMachine(selector) {
+  const ui = useMachineProvider(({ context }) => context.ui);
+  const [state, send] = useService(ui);
 
-  return { state, context, send: sendUi };
+  return selector({ state, context: state.context, send });
 }

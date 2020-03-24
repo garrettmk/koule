@@ -1,5 +1,5 @@
 import { spawn, assign } from "xstate";
-import { SUBSCRIBE_GROUP_LIST } from "../queries";
+import { SUBSCRIBE_GROUP_LIST } from "../../queries";
 
 export default {
   context: {

@@ -8,7 +8,7 @@ import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { split } from 'apollo-link';
 import { snakeCase } from 'lodash';
-import { QUERY_TASKS_BY_DATE } from "../../queries";
+import { QUERY_TASKS_BY_DATE } from "../../../queries";
 const { log } = actions;
 
 export const ApiMachine = Machine({

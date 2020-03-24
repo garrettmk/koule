@@ -3,18 +3,13 @@ import {useMachineProvider} from "../../hooks";
 
 
 export function State({ not, matches, children }) {
-  const state = useMachineProvider(({ state }) => state);
+  const { stateMatches } = useMachineProvider();
 
-  let isAMatch = (Array.isArray(matches) ? matches : [matches]).reduce(
-    (result, match) => result || state.matches(match),
-    false
-  );
+  const isAMatch = not
+    ? !stateMatches(matches)
+    : stateMatches(matches);
 
-  if (not)
-    isAMatch = !isAMatch;
-
-  if (isAMatch)
-    return children;
-
-  return null;
+  return isAMatch
+    ? children
+    : null;
 }

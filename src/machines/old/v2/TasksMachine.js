@@ -1,5 +1,5 @@
 import { Machine, sendParent, assign } from "xstate";
-import { QUERY_TASKS_BY_DATE } from "../../queries";
+import { QUERY_TASKS_BY_DATE } from "../../../queries";
 
 export const TasksMachine = Machine({
   id: 'tasks-machine',

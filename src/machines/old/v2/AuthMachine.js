@@ -1,5 +1,5 @@
 import auth0 from 'auth0-js';
-import authConfig from '../../config/auth';
+import authConfig from '../../../config/auth';
 import { Machine, assign, sendParent } from "xstate";
 import { respond } from "xstate/lib/actions";
 

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useTransition } from "react-spring";
 import { useMachineProvider } from "../../hooks";
 import * as S from './styled';
+import { useService } from "@xstate/react/lib";
 
 const TRANSITIONS = {
   rtl: {
@@ -17,15 +18,13 @@ const TRANSITIONS = {
 };
 
 export function Pager({ children, ...props }) {
-  const { state, historyLength } = useMachineProvider(({ state, context }) => ({
-    state,
-    historyLength: context.navigationHistory.length
-  }));
+  const { stateMatches, nav } = useMachineProvider();
+  const historyLength = nav.context.history.length;
 
   const childArray = React.Children.toArray(children);
   const matchedIndex = childArray.findIndex(child => child.props.not
-    ? !state.matches(child.props.matches)
-    : state.matches(child.props.matches)
+    ? !stateMatches(child.props.matches)
+    : stateMatches(child.props.matches)
   );
 
   const matchedChild = childArray[matchedIndex];

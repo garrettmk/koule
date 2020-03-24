@@ -1,6 +1,6 @@
 import cuid from 'cuid';
 import { assign, spawn } from "xstate";
-import { CREATE_GROUP, SUBSCRIBE_GROUP, UPDATE_GROUP, UPSERT_GROUP } from "../queries";
+import { CREATE_GROUP, SUBSCRIBE_GROUP, UPDATE_GROUP, UPSERT_GROUP } from "../../queries";
 
 export default {
   context: {

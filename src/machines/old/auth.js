@@ -1,5 +1,5 @@
 import auth0 from "auth0-js";
-import authConfig from "../config/auth";
+import authConfig from "../../config/auth";
 import { assign, send } from "xstate";
 import { HttpLink } from "apollo-link-http";
 import { WebSocketLink } from "apollo-link-ws";
