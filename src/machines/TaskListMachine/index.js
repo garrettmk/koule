@@ -63,8 +63,8 @@ export const TaskListMachine = Machine({
     subscribeTaskList: sendParent((_, { after, before }) => ({
       type: 'SUBSCRIBE_TASK_LIST',
       variables: {
-        after: after || new Date().toISOString(),
-        before,
+        after: new Date(0).toISOString(),
+        before: null,
       }
     })),
 

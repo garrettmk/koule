@@ -1,45 +1,57 @@
-import React, { createContext, useCallback, useEffect, useMemo, useState } from "react";
-import { State } from "xstate";
+import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { State, interpret  } from "xstate";
+import { AuthMachine } from "../../machines/AuthMachine";
+import authConfig from '../../config/auth';
+import AppWorker from 'worker-loader!../../appWorker'; // eslint-disable-line import/no-webpack-loader-syntax
 
 export const MachineProviderContext = createContext({});
 
-export function MachineProvider({ service, children }) {
-  const [state, setState] = useState(service.state);
+export function MachineProvider({ children }) {
+  const worker = useRef(null);
+  const authService = useRef(null);
+  const [state, setState] = useState({});
 
-  // Update the component on transitions
+  const updateState = useCallback(
+    () => {
+      const authState = authService.current.state;
+
+    }
+  )
+
   useEffect(
-    () => void service.onTransition(newState => {
-      // if (newState.event.type === 'xstate.update')
-      //   return;
+    () => {
+      worker.current = new AppWorker();
 
-      console.log(newState._event);
-      // console.count('MachineProvider update');
+      const authParent = { send: event => worker.current.postMessage(JSON.stringify(event)) };
+      authService.current = interpret(
+        AuthMachine.withContext({ config: authConfig }),
+        { parent: authParent }
+      );
 
-      const getWorkerChildState = name => {
-        // const child = service.children.get(name);
-        // return child ? child.state : undefined;
+      // Update the state value, or send a message to auth
+      worker.current.addEventListener('message', ({ data }) => {
+        const event = JSON.parse(data);
+        console.log('@worker, ', event);
 
-        try {
-          return State.create(service.children.get('worker').state.context[name]);
-        } catch (e) {
-          return undefined;
+        if (event.type === 'worker.state') {
+          const newState = { auth: authService.current.state };
+          Object.entries(event.states).forEach(([name, state]) =>
+            newState[name] = State.create(state)
+          );
+          setState(newState);
+        } else {
+          authService.current.send(event);
         }
-      };
+      });
 
-      const newValue = {
-        auth: service.children.get('auth').state,
-        ui: getWorkerChildState('ui'),
-        nav: getWorkerChildState('nav'),
-        apollo: getWorkerChildState('apollo'),
-        taskList: getWorkerChildState('taskList'),
-        groupList: getWorkerChildState('groupList'),
-        task: getWorkerChildState('task'),
-        wait: getWorkerChildState('wait'),
-      };
+      authService.current.start();
 
-      setState(newValue);
-    }),
-    [service]
+      return () => {
+        worker.current.terminate();
+        authService.current.stop();
+      }
+    },
+    []
   );
 
   // Provide a special match() function where you can specify the service's state in [brackets]
@@ -60,13 +72,13 @@ export function MachineProvider({ service, children }) {
         }
       }
     ),
-    [service, state]
+    [state]
   );
 
   const contextValue = useMemo(
     () => ({
       stateMatches,
-      send: service.send,
+      send: event => worker.current.postMessage(JSON.stringify(event)),
       ...state
     }),
     [state]

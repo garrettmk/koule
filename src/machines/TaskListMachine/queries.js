@@ -24,7 +24,7 @@ export const SUBSCRIBE_TASKS_BY_DATE = gql`
             ]
           },
           {
-            start: { _eq: $before },
+            start: { is_null: true },
           }
         ],
       },

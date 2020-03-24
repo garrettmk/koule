@@ -5,15 +5,11 @@ import { ThemeProvider } from "styled-components";
 import { theme } from './theme';
 import { Header } from "./molecules/Header";
 
-import { AppMachine } from "./machines/AppMachine";
-import { interpret } from "xstate";
-
 console.time('startup time');
-const appService = interpret(AppMachine).start();
 
 export default function App() {
   return (
-    <MachineProvider service={appService}>
+    <MachineProvider>
       <ThemeProvider theme={theme}>
         <State matches={'[nav]running'}>
           <Header/>

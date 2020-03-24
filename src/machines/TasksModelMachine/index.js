@@ -33,7 +33,7 @@ export const TasksModelMachine = Machine({
     },
 
     CREATE_TASK: {
-      actions: ['assignNewTask', 'selectLastTask', 'navigateLastTask']
+      actions: ['assignNewTask', 'createNewTask', 'selectLastTask', 'navigateLastTask']
     }
   }
 },{
@@ -96,6 +96,11 @@ export const TasksModelMachine = Machine({
         { id: cuid() }
       ]
     }),
+
+    createNewTask: sendParent(({ tasks }) => ({
+      type: 'UPDATE_TASK',
+      variables: tasks[tasks.length - 1]
+    })),
 
     selectLastTask: sendParent(({ tasks }) => ({
       type: 'SELECT_TASK',

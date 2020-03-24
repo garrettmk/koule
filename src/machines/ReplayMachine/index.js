@@ -3,10 +3,17 @@ import { Machine, assign, sendParent } from "xstate";
 export const ReplayMachine = Machine({
   id: 'replay-machine',
   context: {
+    matcher: () => true,
     history: [],
   },
-  initial: 'running',
+  initial: 'initializing',
   states: {
+    initializing: {
+      entry: 'createContext',
+      on: {
+        '': 'running',
+      }
+    },
     running: {
       on: {
         '*': [
@@ -25,8 +32,13 @@ export const ReplayMachine = Machine({
   }
 },{
   actions: {
+    createContext: assign(context => ({
+      matcher: context.matcher || (() => true),
+      history: []
+    })),
+
     addToHistory: assign({
-      history: ({ history }, event) => [...history, event],
+      history: ({ history }, event) => [...(history || []), event],
     }),
 
     popHistory: assign({
@@ -37,7 +49,7 @@ export const ReplayMachine = Machine({
   },
 
   guards: {
-    isMatchingEvent: (_, { type }) => true,
+    isMatchingEvent: ({ matcher }, event) => matcher(event),
 
     isReplayEvent: ({ history }, { type }) => history.length > 1 && type === 'NAVIGATE_BACK',
   }
