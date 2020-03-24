@@ -7,6 +7,7 @@ import { TasksModelMachine } from "../TasksModelMachine";
 import { GroupListMachine } from "../GroupList";
 import { UiMachine } from "../UiMachine";
 import { NavigationMachine } from "../NavigationMachine";
+import { WaitMachine } from "../WaitMachine";
 
 export const AppWorkerMachine = Router({
   broadcastToParent: true,
@@ -39,6 +40,10 @@ export const AppWorkerMachine = Router({
     source: NavigationMachine,
     type: 'machine',
     sync: false
+  },
+  wait: {
+    source: WaitMachine,
+    type: 'machine',
   }
 });
 

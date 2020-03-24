@@ -34,6 +34,7 @@ export function MachineProvider({ service, children }) {
         taskList: getWorkerChildState('taskList'),
         groupList: getWorkerChildState('groupList'),
         task: getWorkerChildState('task'),
+        wait: getWorkerChildState('wait'),
       };
 
       setState(newValue);

@@ -39,7 +39,8 @@ export function runWorkerService(machine, { sync = false } = {}) {
           taskList: getChildState('taskList'),
           groupList: getChildState('groupList'),
           ui: getChildState('ui'),
-          nav: getChildState('nav')
+          nav: getChildState('nav'),
+          wait: getChildState('wait')
         }
       });
     });

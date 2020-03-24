@@ -4,9 +4,7 @@ import { log, raise } from "xstate/lib/actions";
 
 export const UiMachine = Machine({
   id: 'ui-machine',
-  context: {
-
-  },
+  context: {},
   initial: 'initializing',
   states: {
     initializing: {
@@ -15,16 +13,12 @@ export const UiMachine = Machine({
       }
     },
     loading: {
-      entry: 'refreshUI',
+      entry: ['refreshUI', 'waitForInitialData'],
       on: {
-        SUBSCRIBE_TASK_LIST_RESULT: [
-          { cond: 'isFullyLoaded', actions: 'navigateTaskList', target: 'taskList' },
-          { actions: 'assignSubscriptionStatus' }
-        ],
-        SUBSCRIBE_GROUP_LIST_RESULT: [
-          { cond: 'isFullyLoaded', actions: 'navigateTaskList', target: 'taskList' },
-          { actions: 'assignSubscriptionStatus' }
-        ]
+        WAIT_FINISHED: {
+          target: 'taskList',
+          actions: 'navigateTaskList'
+        },
       }
     },
     taskList: {
@@ -38,6 +32,9 @@ export const UiMachine = Machine({
     taskView: {
       entry: 'refreshUI',
       on: {
+        UPDATE_TASK: {
+          actions: 'refreshUI',
+        },
         SUBSCRIBE_TASK_LIST_RESULT: {
           actions: 'refreshUI'
         },
@@ -70,19 +67,12 @@ export const UiMachine = Machine({
 },{
   actions: {
     refreshUI: sendParent('REFRESH_UI'),
+
     navigateTaskList: sendParent('NAVIGATE_TASK_LIST'),
-    assignSubscriptionStatus: assign({
-      subscriptionStatus: (_, { type }) => type,
-    }),
 
-    selectTask: sendParent((_, { id }) => ({
-      type: 'SELECT_TASK',
-      task: { id }
-    }))
+    waitForInitialData: sendParent({
+      type: 'WAIT_FOR',
+      events: ['SUBSCRIBE_TASK_LIST_RESULT', 'SUBSCRIBE_GROUP_LIST_RESULT'],
+    })
   },
-
-  guards: {
-    isFullyLoaded: ({ subscriptionStatus }, { type }) =>
-      subscriptionStatus && subscriptionStatus !== type,
-  }
 });
