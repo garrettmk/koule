@@ -31,7 +31,7 @@ export const TaskMachine = Machine({
     running: {
       on: {
         FINISH_TASK: {
-          actions: ['assignTaskEnd', 'updateEnd'],
+          actions: ['assignEnd', 'updateEnd'],
           target: 'finished',
         }
       }

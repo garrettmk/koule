@@ -5,19 +5,44 @@ let webAuth = null;
 
 export const AuthMachine = Machine({
   id: 'auth-machine',
-  context: {
-    result: null,
-    tokenGetter: null,
-  },
+  context: {},
   initial: 'initializing',
   states: {
     initializing: {
-      entry: 'createWebAuth',
-      on: {
-        '': {
-          cond: 'isCallbackUrl',
-          target: 'authenticating'
+      initial: 'creating',
+      states: {
+        creating: {
+          entry: 'createWebAuth',
+          on: {
+            '': 'checkingCallback'
+          }
         },
+        checkingCallback: {
+          on: {
+            '': [
+              {
+                cond: 'isCallbackUrl',
+                target: '#auth-machine.authenticating'
+              },
+              {
+                target: 'checkingSession'
+              }
+            ]
+          },
+        },
+        checkingSession: {
+          invoke: {
+            id: 'check-session',
+            src: 'checkSessionService',
+            onDone: '#auth-machine.signedIn',
+            onError: '#auth-machine.signedOut'
+          }
+        }
+      },
+    },
+    signedOut: {
+      on: {
+        SIGN_IN: { actions: 'authorize' },
       },
       invoke: {
         id: 'check-session-service',
@@ -26,15 +51,6 @@ export const AuthMachine = Machine({
           actions: 'assignResult',
           target: 'signedIn'
         },
-        onError: {
-          target: 'signedOut'
-        }
-      }
-    },
-    signedOut: {
-      entry: 'sendSignedOut',
-      on: {
-        SIGN_IN: { actions: 'authorize' },
       }
     },
     authenticating: {
@@ -54,14 +70,52 @@ export const AuthMachine = Machine({
     },
     signedIn: {
       entry: 'sendSignedIn',
+      initial: 'idle',
+      states: {
+        idle: {
+          on: {
+            GET_ID_TOKEN: 'gettingToken'
+          }
+        },
+        gettingToken: {
+          invoke: {
+            id: 'tokenGetter',
+            src: 'checkSessionService',
+            onDone: {
+              target: 'idle',
+              actions: ['assignResult', 'sendIdToken']
+            },
+            onError: {
+              actions: 'authorize'
+            }
+          }
+        }
+      },
       on: {
         SIGN_OUT: { actions: 'sendSignedOut', target: 'signedOut' },
-        GET_ID_TOKEN: { actions: 'spawnTokenGetter' },
-        'done.invoke.get-token': { actions: 'respondWithToken' },
       }
     }
   }
 },{
+  actions: {
+    createWebAuth: ({ config }) => webAuth = new auth0.WebAuth(config),
+
+    authorize: () => webAuth.authorize(),
+
+    assignResult: assign((_, { data }) => data),
+
+    sendAuthenticating: sendParent('AUTHENTICATING'),
+
+    sendSignedIn: sendParent('SIGNED_IN'),
+
+    sendSignedOut: sendParent('SIGNED_OUT'),
+
+    sendIdToken: sendParent(({ idToken }) => ({
+      type: 'ID_TOKEN',
+      value: idToken
+    })),
+  },
+
   guards: {
     isCallbackUrl: () => {
       const location = window.location;
@@ -91,31 +145,4 @@ export const AuthMachine = Machine({
       });
     }),
   },
-
-  actions: {
-    createWebAuth: ({ config }) => webAuth = new auth0.WebAuth(config),
-
-    authorize: () => {
-      webAuth.authorize()
-    },
-
-    assignResult: assign({
-      result: (_, event) => event.data
-    }),
-
-    sendAuthenticating: sendParent('AUTHENTICATING'),
-
-    sendSignedIn: sendParent('SIGNED_IN'),
-
-    sendSignedOut: sendParent('SIGNED_OUT'),
-
-    spawnTokenGetter: assign({
-      tokenGetter: ({ result }) => spawn(
-        new Promise((resolve, reject) => resolve(result.idToken)),
-        'get-token'
-      )
-    }),
-
-    respondWithToken: sendParent((_, { data }) => ({ type: 'ID_TOKEN', value: data }))
-  }
 });

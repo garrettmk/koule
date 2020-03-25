@@ -40,6 +40,7 @@ export const ApolloMachine = Machine({
     },
     '*': [
       { cond: 'shouldCreateService', actions: 'createService', target: 'pending' },
+      { cond: 'isExpiredTokenError', actions: ['forwardToParent', 'removeCompletedServices', 'getToken'], target: 'pending' },
       { cond: 'shouldForwardToParent', actions: ['forwardToParent', 'removeCompletedServices'], target: 'ready' }
     ],
   },
@@ -130,6 +131,9 @@ export const ApolloMachine = Machine({
       return isSuccessOrErrorMessage && isFromChild;
     },
 
-    hasPendingOperations: ({ services }) => services.some(service => service.state.matches('pending')),
+    isExpiredTokenError: (_, { data }) => {
+      const message = data && data.message || '';
+      message.includes('JWTExpired')
+    },
   }
 });

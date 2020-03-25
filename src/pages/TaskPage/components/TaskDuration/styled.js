@@ -3,7 +3,10 @@ import { ElapsedTime, Label } from "../../../../atoms";
 import { palette, space, fonts } from "../../../../theme";
 
 export const Root = styled.div`
-
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const Duration = styled(ElapsedTime)`
