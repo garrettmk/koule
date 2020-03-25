@@ -3,34 +3,32 @@ import { ElapsedTime, Label } from "../../../../atoms";
 import { palette, space, fonts } from "../../../../theme";
 
 export const Root = styled.div`
-  flex: 1 1 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+
 `;
 
 export const Duration = styled(ElapsedTime)`
-  flex: 1 1 100%;
+  display: block;
+  text-align: center;
   font: ${fonts.hero};
   color: ${palette.textPrimary};
-  text-align: center;
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto;
+  grid-gap: ${space.units(1)};
+  justify-content: center;
+  justify-items: end;
 `;
 
 export const TimeLabel = styled(Label)`
+  grid-column: 1 / 2;
   white-space: nowrap;
-  margin: 0 ${space.units(2)};
 `;
 
-export const TimeValue = styled.span`
-  font: ${fonts.label};
+export const TimeValue = styled(Label)`
+  grid-column: 2 / 3;
   color: ${palette.textPrimary};
-  //text-transform: none;
-  //letter-spacing: 0;
-`;
-
-export const Spacer = styled.span`
-  display: inline-block;
-  width: ${space.units(4)};
+  white-space: nowrap;
 `;

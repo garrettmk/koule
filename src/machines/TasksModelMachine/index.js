@@ -93,7 +93,10 @@ export const TasksModelMachine = Machine({
     assignNewTask: assign({
       tasks: ({ tasks }) => [
         ...tasks,
-        { id: cuid() }
+        {
+          id: cuid(),
+          group_id: tasks.length ? tasks[tasks.length - 1].group_id : null
+        }
       ]
     }),
 
