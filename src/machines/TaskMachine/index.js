@@ -23,7 +23,7 @@ export const TaskMachine = Machine({
     ready: {
       on: {
         START_TASK: {
-          actions: ['assignStart', 'updateStart'],
+          actions: ['assignStart', 'updateTask'],
           target: 'running'
         }
       }
@@ -31,7 +31,7 @@ export const TaskMachine = Machine({
     running: {
       on: {
         FINISH_TASK: {
-          actions: ['assignEnd', 'updateEnd'],
+          actions: ['assignEnd', 'updateTask'],
           target: 'finished',
         }
       }
@@ -46,13 +46,13 @@ export const TaskMachine = Machine({
 
     SET_TASK_DESCRIPTION: {
       cond: 'isValidDescriptionChange',
-      actions: ['assignDescription', 'updateDescription'],
+      actions: ['assignDescription', 'updateTask'],
       target: 'invalid'
     },
 
     SET_TASK_GROUP_ID: {
       cond: 'isValidGroupIdChange',
-      actions: ['assignGroupId', 'updateGroupId'],
+      actions: ['assignGroupId', 'updateTask'],
     },
 
     SUBSCRIBE_TASK_LIST_RESULT: {
@@ -71,36 +71,21 @@ export const TaskMachine = Machine({
       description: (_, { value }) => value,
     }),
 
-    updateDescription: sendParent((task, { value: description }) => ({
-      type: 'UPDATE_TASK',
-      variables: { ...task, description }
-    })),
-
     assignGroupId: assign({
       group_id: (_, { value }) => value,
     }),
 
-    updateGroupId: sendParent((task, { value: group_id }) => ({
-      type: 'UPDATE_TASK',
-      variables: { ...task, group_id }
-    })),
-
     assignStart: assign({
-      start: new Date().toISOString(),
+      start: () => new Date().toISOString(),
     }),
-
-    updateStart: sendParent(task => ({
-      type: 'UPDATE_TASK',
-      variables: { ...task, start: new Date().toISOString() }
-    })),
 
     assignEnd: assign({
-      end: new Date().toISOString(),
+      end: () => new Date().toISOString(),
     }),
 
-    updateEnd: sendParent(task => ({
+    updateTask: sendParent(task => ({
       type: 'UPDATE_TASK',
-      variables: { ...task, end: new Date().toISOString() },
+      variables: task
     })),
 
     assignFromTaskListResult: assign((current, event) => {

@@ -32,6 +32,9 @@ export const UiMachine = Machine({
     taskView: {
       entry: 'refreshUI',
       on: {
+        FINISH_TASK: {
+          actions: 'refreshUI'
+        },
         UPDATE_TASK: {
           actions: 'refreshUI',
         },

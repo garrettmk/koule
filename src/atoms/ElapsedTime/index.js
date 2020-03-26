@@ -24,7 +24,7 @@ export function ElapsedTime({ start, end, ...props }) {
       </span>
     );
 
-  const totalSeconds = differenceInSeconds(new Date(endDate), new Date(start));
+  const totalSeconds = differenceInSeconds(new Date(endDate || new Date()), new Date(start));
   const minutes = Math.floor(totalSeconds / 60);
   const seconds = Math.floor(totalSeconds - minutes * 60);
 
