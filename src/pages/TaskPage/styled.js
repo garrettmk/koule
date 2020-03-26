@@ -28,9 +28,10 @@ export const ActivityFrame = styled.div`
 `;
 
 export const ActionButton = styled(Button)`
-  margin: ${space.units(3)} 0;
+  //margin: ${space.units(3)} 0;
   background-color: ${palette.primary};
   color: ${palette.textPrimaryLight};
   font: ${fonts.body};
   text-transform: uppercase;
+  width: 100%;
 `;

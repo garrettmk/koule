@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { animated } from "react-spring";
 import { ElapsedTime, Label } from "../../../../atoms";
 import { palette, space, fonts } from "../../../../theme";
 
-export const Root = styled.div`
+export const Root = styled(animated.div)`
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;

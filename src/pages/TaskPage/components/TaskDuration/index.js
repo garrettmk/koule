@@ -3,9 +3,9 @@ import { format } from 'date-fns';
 import * as S from './styled';
 
 
-export function TaskDuration({ start, end }) {
+export function TaskDuration({ start, end, ...otherProps }) {
   return (
-    <S.Root>
+    <S.Root {...otherProps}>
       <S.Duration start={start} end={end}/>
       <S.Grid>
         {start && (

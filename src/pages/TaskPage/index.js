@@ -6,6 +6,7 @@ import { useMachineProvider } from "../../hooks";
 import * as S from './styled';
 import * as icons from '../../icons';
 import cuid from "cuid";
+import { useTrail, useSpring, animated } from "react-spring";
 
 
 export function TaskPage(props) {
@@ -51,22 +52,45 @@ export function TaskPage(props) {
     task.matches('finished') ? ['Next', nextTask] :
     ['Please wait', null];
 
+  // Animations
+
+  const [
+    durationProps,
+    descriptionProps,
+    descriptionInputProps,
+    activityProps,
+    iconButtonProps,
+    activityInputProps,
+    actionButtonProps
+  ] = useTrail(7, {
+    transform: 'translateX(0)',
+    from: { transform: 'translateX(200vw)' }
+  });
+
+  const actionHolderProps = useSpring({
+    height: task.matches('invalid') ? 0 : 48,
+    overflow: 'hidden',
+    margin: '24px 0'
+  });
+
   return (
     <S.TaskPage {...props}>
       <TaskDuration
         start={start}
         end={end}
+        style={durationProps}
       />
 
-      <S.SectionHeader>Description</S.SectionHeader>
+      <S.SectionHeader style={descriptionProps}>Description</S.SectionHeader>
       <S.DescriptionInput
         value={description}
         onSubmit={setDescription}
+        style={descriptionInputProps}
       />
 
-      <S.SectionHeader>Activity</S.SectionHeader>
+      <S.SectionHeader style={activityProps}>Activity</S.SectionHeader>
       <S.ActivityFrame>
-        <Button outlined disabled={!group} onClick={navigateChooseIcon}>
+        <Button outlined disabled={!group} onClick={navigateChooseIcon} style={iconButtonProps}>
           {(() => {
             const name = group && group.icon;
             const component = icons[name] || icons['QuestionIcon'];
@@ -79,6 +103,7 @@ export function TaskPage(props) {
           value={group ? group.description : ''}
           onSubmit={updateGroup}
           list={'group-names-list'}
+          style={activityInputProps}
         />
         <datalist id={'group-names-list'}>
           {groups.map(group => (
@@ -89,11 +114,11 @@ export function TaskPage(props) {
         </datalist>
       </S.ActivityFrame>
 
-      {!task.matches('invalid') && (
-        <S.ActionButton disabled={!action} onClick={action}>
+      <animated.div style={actionHolderProps}>
+        <S.ActionButton disabled={!action} onClick={action} style={actionButtonProps}>
           {label}
         </S.ActionButton>
-      )}
+      </animated.div>
     </S.TaskPage>
   );
 }

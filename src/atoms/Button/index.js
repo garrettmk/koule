@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 import { palette, fonts, space } from "../../theme";
 
-export const Button = styled.button`
+export const Button = styled(animated.button)`
   background-color: ${ ({ filled, theme }) => filled 
     ? palette.primary({ theme }) 
     : 'transparent' };

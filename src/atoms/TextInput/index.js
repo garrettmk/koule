@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { animated } from "react-spring";
 import { space, palette, fonts } from "../../theme";
 
-const Input = styled.input`
+const Input = styled(animated.input)`
   min-height: ${space.units(6)};
   padding: ${space.units(1)};
   box-sizing: border-box;

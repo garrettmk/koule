@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { animated } from "react-spring";
 import { palette, space, fonts } from "../../theme";
 
-export const SectionDivider = styled.div`
+export const SectionDivider = styled(animated.div)`
   box-sizing: border-box;
   padding: ${space.units(2)};
   padding-bottom: ${space.units(1)};
