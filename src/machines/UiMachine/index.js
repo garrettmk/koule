@@ -8,8 +8,9 @@ export const UiMachine = Machine({
   initial: 'initializing',
   states: {
     initializing: {
+      entry: 'recordNavigation',
       on: {
-        SIGNED_IN: 'loading',
+        '': 'loading',
       }
     },
     loading: {
@@ -65,10 +66,15 @@ export const UiMachine = Machine({
     },
     NAVIGATE_CURRENT_TASK: {
       target: 'taskView',
-    }
+    },
+    // NETWORK_ONLINE: {
+    //   actions: 'getToken'
+    // }
   }
 },{
   actions: {
+    getToken: sendParent('GET_ID_TOKEN'),
+
     refreshUI: sendParent('REFRESH_UI'),
 
     navigateTaskList: sendParent('NAVIGATE_TASK_LIST'),
@@ -76,6 +82,8 @@ export const UiMachine = Machine({
     waitForInitialData: sendParent({
       type: 'WAIT_FOR',
       events: ['SUBSCRIBE_TASK_LIST_RESULT', 'SUBSCRIBE_GROUP_LIST_RESULT'],
-    })
+    }),
+
+    recordNavigation: sendParent('RECORD_NAVIGATION')
   },
 });

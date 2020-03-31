@@ -4,13 +4,22 @@ import { ApolloMutationMachine } from "./ApolloMutationMachine";
 import { ApolloSubscriptionMachine } from "./ApolloSubscriptionMachine";
 import { HttpLink } from "apollo-link-http";
 import { WebSocketLink } from "apollo-link-ws";
+
+import QueueLink from 'apollo-link-queue';
+import { RetryLink } from "apollo-link-retry";
+import SerializingLink from 'apollo-link-serialize';
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import { getMainDefinition } from "apollo-utilities";
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { CachePersistor } from "apollo-cache-persist";
 import { split } from 'apollo-link';
+import { ApolloLink } from "apollo-link";
+import { setContext } from "apollo-link-context";
 
 export let apollo = null;
+let idToken = null;
+
 
 export const ApolloMachine = Machine({
   id: 'api-service',
@@ -21,7 +30,6 @@ export const ApolloMachine = Machine({
   initial: 'initializing',
   states: {
     initializing: {
-      // entry: 'getToken',
       on: {
         SIGNED_IN: { actions: 'getToken' },
         ID_TOKEN: {
@@ -38,6 +46,9 @@ export const ApolloMachine = Machine({
     REGISTER_API_OPERATIONS: {
       actions: 'registerOperations',
     },
+    ID_TOKEN: {
+      actions: 'setIdToken'
+    },
     '*': [
       { cond: 'shouldCreateService', actions: 'createService', target: 'pending' },
       { cond: 'isExpiredTokenError', actions: ['forwardToParent', 'removeCompletedServices', 'getToken'], target: 'pending' },
@@ -48,7 +59,18 @@ export const ApolloMachine = Machine({
   actions: {
     getToken: sendParent('GET_ID_TOKEN'),
 
-    initialize: (_, { value: idToken }) => {
+    setIdToken: (_, { value }) => idToken = value,
+
+    initialize: (_, { value }) => {
+      idToken = value;
+
+      const authLink = setContext(({ headers}) => ({
+        headers: {
+          ...headers,
+          Authorization: 'Bearer ' + idToken
+        }
+      }));
+
       const httpLink = new HttpLink({
         uri: 'http://koule-api.herokuapp.com/v1/graphql',
         headers: { Authorization: 'Bearer ' + idToken },
@@ -70,13 +92,15 @@ export const ApolloMachine = Machine({
           return kind === 'OperationDefinition' && operation === 'subscription';
         },
         wsLink,
-        httpLink
+        ApolloLink.from([authLink, httpLink])
       );
 
+      const cache = new InMemoryCache();
+
       apollo = new ApolloClient({
-        cache: new InMemoryCache(),
+        cache,
         link,
-        defaultOptions: { fetchPolicy: 'network-only' }
+        defaultOptions: { fetchPolicy: 'cache-and-network' }
       });
     },
 
@@ -131,9 +155,15 @@ export const ApolloMachine = Machine({
       return isSuccessOrErrorMessage && isFromChild;
     },
 
-    isExpiredTokenError: (_, { data }) => {
-      const message = data && data.message || '';
-      message.includes('JWTExpired')
+    isExpiredTokenError: (_, { data = {} }) => {
+      const { message = '' } = data;
+      return message.includes('JWTExpired');
     },
+
+    isMutationError: ({ services }, event, meta) => {
+      const { origin } = meta._event;
+      const originService = services.find(service => service.sessionId === origin);
+      return originService && originService.machine.id === 'apollo-mutation-machine';
+    }
   }
 });

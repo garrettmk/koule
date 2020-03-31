@@ -6,21 +6,19 @@ export const GroupListMachine = Machine({
   context: {
     groupList: []
   },
-  initial: 'ready',
+  initial: 'initializing',
   states: {
     initializing: {
+      entry: 'registerApiOperations',
       on: {
-        SUBSCRIBE_GROUP_LIST_RESULT: {
-          actions: 'assignSubscribeResult',
-          target: 'ready'
-        }
+        '': 'ready'
       }
     },
     ready: {}
   },
   on: {
     API_READY: {
-      actions: ['registerApiOperations', 'subscribeGroupList'],
+      actions: 'subscribeGroupList',
     },
 
     SUBSCRIBE_GROUP_LIST_RESULT: {
@@ -33,21 +31,21 @@ export const GroupListMachine = Machine({
       type: 'REGISTER_API_OPERATIONS',
       operations: [
         {
-          subscription: SUBSCRIBE_GROUP_LIST,
-          subscribeEvent: 'SUBSCRIBE_GROUP_LIST',
+          body: SUBSCRIBE_GROUP_LIST,
+          sendEvent: 'SUBSCRIBE_GROUP_LIST',
           successEvent: 'SUBSCRIBE_GROUP_LIST_RESULT',
           errorEvent: 'SUBSCRIBE_GROUP_LIST_ERROR',
           cancelEvent: 'SUBSCRIBE_GROUP_LIST_CANCEL'
         },
         {
-          mutation: CREATE_GROUP,
-          mutateEvent: 'CREATE_GROUP',
+          body: CREATE_GROUP,
+          sendEvent: 'CREATE_GROUP',
           successEvent: 'CREATE_GROUP_RESULT',
           errorEvent: 'CREATE_GROUP_ERROR'
         },
         {
-          mutation: UPDATE_GROUP,
-          mutateEvent: 'UPDATE_GROUP',
+          body: UPDATE_GROUP,
+          sendEvent: 'UPDATE_GROUP',
           successEvent: 'UPDATE_GROUP_RESULT',
           errorEvent: 'UPDATE_GROUP_ERROR'
         }

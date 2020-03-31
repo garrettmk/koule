@@ -11,15 +11,13 @@ export default function App() {
   return (
     <MachineProvider>
       <ThemeProvider theme={theme}>
-        <State matches={'[nav]running'}>
-          <Header/>
-          <Pager>
-            <LoginPage matches={['[auth]signedOut', '[auth]authenticating', '[ui]loading']}/>
-            <TaskListPage matches={'[ui]taskList'}/>
-            <TaskPage matches={'[ui]taskView'}/>
-            <ChooseIconPage matches={'[ui]chooseGroupIcon'}/>
-          </Pager>
-        </State>
+        <Header/>
+        <Pager>
+          <LoginPage matches={['[auth]signedOut', '[auth]authenticating', '[ui]loading']}/>
+          <TaskListPage matches={'[ui]taskList'}/>
+          <TaskPage matches={'[ui]taskView'}/>
+          <ChooseIconPage matches={'[ui]chooseGroupIcon'}/>
+        </Pager>
       </ThemeProvider>
     </MachineProvider>
   );

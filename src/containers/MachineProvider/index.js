@@ -11,13 +11,6 @@ export function MachineProvider({ children }) {
   const authService = useRef(null);
   const [state, setState] = useState({});
 
-  const updateState = useCallback(
-    () => {
-      const authState = authService.current.state;
-
-    }
-  )
-
   useEffect(
     () => {
       worker.current = new AppWorker();
@@ -83,6 +76,9 @@ export function MachineProvider({ children }) {
     }),
     [state]
   );
+
+  if (!state.ui)
+    return null;
 
   return (
     <MachineProviderContext.Provider value={contextValue}>

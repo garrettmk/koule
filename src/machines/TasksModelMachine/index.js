@@ -7,13 +7,21 @@ export const TasksModelMachine = Machine({
   context: {
     tasks: []
   },
-  initial: 'ready',
+  initial: 'initializing',
   states: {
-    ready: {}
+    initializing: {
+      entry: 'registerApiOperations',
+      on: {
+        '': 'ready'
+      }
+    },
+    ready: {
+
+    }
   },
   on: {
     API_READY: {
-      actions: ['registerApiOperations', 'subscribeTasks']
+      actions: 'subscribeTasks'
     },
 
     SUBSCRIBE_TASK_LIST_RESULT: {
@@ -42,15 +50,15 @@ export const TasksModelMachine = Machine({
       type: 'REGISTER_API_OPERATIONS',
       operations: [
         {
-          subscription: SUBSCRIBE_TASKS,
-          subscribeEvent: 'SUBSCRIBE_TASK_LIST',
+          body: SUBSCRIBE_TASKS,
+          sendEvent: 'SUBSCRIBE_TASK_LIST',
           successEvent: 'SUBSCRIBE_TASK_LIST_RESULT',
           errorEvent: 'SUBSCRIBE_TASK_LIST_ERROR',
           cancelEvent: 'SUBSCRIBE_TASK_LIST_CANCEL'
         },
         {
-          mutation: UPSERT_TASK,
-          mutateEvent: 'UPDATE_TASK',
+          body: UPSERT_TASK,
+          sendEvent: 'UPDATE_TASK',
           successEvent: 'UPDATE_TASK_RESULT',
           errorEvent: 'UPDATE_TASK_ERROR'
         }

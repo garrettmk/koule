@@ -1,12 +1,15 @@
 import { ExchangeMachine } from "./machines/ExchangeMachine";
-import { ApolloMachine } from "./machines/ApolloMachine";
+import { ApiMachine, apolloApi } from "./machines/ApiMachine";
 import { TaskMachine } from "./machines/TaskMachine";
 import { TasksModelMachine } from "./machines/TasksModelMachine";
 import { GroupListMachine } from "./machines/GroupList";
 import { UiMachine } from "./machines/UiMachine";
 import { WaitMachine } from "./machines/WaitMachine";
-import { ReplayMachine } from "./machines/ReplayMachine";
+import { ReplayMachine, navigationReplay, offlineReplay } from "./machines/ReplayMachine";
+import { NetworkStatusMachine, workerConfig } from "./machines/NetworkStatusMachine";
+import { OfflineMachine } from "./machines/OfflineMachine";
 import { interpret } from "xstate";
+import { apiConfig } from "./config/api";
 
 
 const workerMachine = ExchangeMachine.withContext({
@@ -15,13 +18,15 @@ const workerMachine = ExchangeMachine.withContext({
       broadcastToParent: ['SIGN_IN', 'GET_ID_TOKEN'],
     },
     services: {
-      apollo: { source: ApolloMachine },
+      api: { source: ApiMachine.withConfig(apolloApi(apiConfig)) },
       taskList: { source: TasksModelMachine },
       task: { source: TaskMachine },
       groupList: { source: GroupListMachine },
+      nav: { source: ReplayMachine.withConfig(navigationReplay) },
       ui: { source: UiMachine },
-      nav: { source: ReplayMachine.withContext({ matcher: event => event.type.startsWith('NAVIGATE') }) },
-      wait: { source: WaitMachine }
+      wait: { source: WaitMachine },
+      offline: { source: OfflineMachine },
+      network: { source: NetworkStatusMachine.withConfig(workerConfig) }
     }
   }
 });

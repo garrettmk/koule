@@ -69,7 +69,7 @@ export const AuthMachine = Machine({
       }
     },
     signedIn: {
-      entry: 'sendSignedIn',
+      entry: ['sendSignedIn', 'sendIdToken'],
       initial: 'idle',
       states: {
         idle: {
@@ -110,9 +110,9 @@ export const AuthMachine = Machine({
 
     sendSignedOut: sendParent('SIGNED_OUT'),
 
-    sendIdToken: sendParent(({ idToken }) => ({
+    sendIdToken: sendParent((_, { data }) => ({
       type: 'ID_TOKEN',
-      value: idToken
+      value: data.idToken
     })),
   },
 

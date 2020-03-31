@@ -1,56 +1,48 @@
-import { Machine, assign, sendParent } from "xstate";
+import { Machine, assign, sendParent, send } from "xstate";
+import { defaultConfig } from "./config";
 
 export const ReplayMachine = Machine({
   id: 'replay-machine',
   context: {
-    matcher: () => true,
-    history: [],
+    history: []
   },
-  initial: 'initializing',
+  initial: 'recording',
   states: {
-    initializing: {
-      entry: 'createContext',
-      on: {
-        '': 'running',
-      }
-    },
-    running: {
+    recording: {
       on: {
         '*': [
-          { cond: 'isReplayEvent', target: 'replay' },
-          { cond: 'isMatchingEvent', actions: 'addToHistory'}
+          { cond: 'isPauseEvent', target: 'paused' },
+          { cond: 'isMatchingEvent', actions: ['assignToHistory', 'recordEvent'] }
+        ]
+      }
+    },
+    paused: {
+      on: {
+        '*': { cond: 'isRecordEvent', target: 'recording' }
+      }
+    },
+    replayLast: {
+      entry: ['replayLastEvent', send('replay.return')],
+      exit: 'popLastEvent',
+    },
+    replayAll: {
+      entry: 'replayLastEvent',
+      exit: 'popLastEvent',
+      on: {
+        '': [
+          { cond: 'isEmpty', target: 'recording' },
+          { target: 'replayAll', internal: false }
         ],
       }
     },
-    replay: {
-      entry: 'replayEvent',
-      exit: 'popHistory',
-      on: {
-        '': 'running'
-      }
-    }
-  }
-},{
-  actions: {
-    createContext: assign(context => ({
-      matcher: context.matcher || (() => true),
-      history: []
-    })),
-
-    addToHistory: assign({
-      history: ({ history }, event) => [...(history || []), event],
-    }),
-
-    popHistory: assign({
-      history: ({ history }) => history.slice(0, -1),
-    }),
-
-    replayEvent: sendParent(({ history }) => history[history.length - 2])
   },
-
-  guards: {
-    isMatchingEvent: ({ matcher }, event) => matcher(event),
-
-    isReplayEvent: ({ history }, { type }) => history.length > 1 && type === 'NAVIGATE_BACK',
+  on: {
+    '*': [
+      { cond: 'isReplayLastEvent', target: 'replayLast' },
+      { cond: 'isReplayAllEvent', target: 'replayAll' },
+    ]
   }
-});
+}, defaultConfig);
+
+
+export * from './config';

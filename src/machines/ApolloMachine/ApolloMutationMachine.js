@@ -25,7 +25,13 @@ export const ApolloMutationMachine = Machine({
     },
     error: {
       entry: 'sendErrorEvent',
-      type: 'final',
+      on: {
+        RETRY: 'pending',
+        CANCEL: 'done'
+      }
+    },
+    done: {
+      type: 'final'
     }
   },
 },{
