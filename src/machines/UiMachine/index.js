@@ -45,6 +45,9 @@ export const UiMachine = Machine({
         NAVIGATE_CHOOSE_ICON: {
           target: 'chooseGroupIcon'
         },
+        NAVIGATE_BACK: {
+          target: 'taskList'
+        }
       }
     },
     chooseGroupIcon: {
@@ -52,6 +55,9 @@ export const UiMachine = Machine({
       on: {
         SUBSCRIBE_GROUP_LIST_RESULT: {
           actions: 'refreshUI'
+        },
+        NAVIGATE_BACK: {
+          target: 'taskView'
         }
       }
     },
@@ -67,9 +73,6 @@ export const UiMachine = Machine({
     NAVIGATE_CURRENT_TASK: {
       target: 'taskView',
     },
-    // NETWORK_ONLINE: {
-    //   actions: 'getToken'
-    // }
   }
 },{
   actions: {

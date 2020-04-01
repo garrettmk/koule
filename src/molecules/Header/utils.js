@@ -1,15 +1,15 @@
-export function titleForNavEvent(event) {
-  if (!event)
+export function titleForUiState(state) {
+  if (!state)
     return;
 
-  const { type, title } = event;
+  if (state.matches('taskList'))
+    return 'Task List';
 
-  const titleMap = {
-    NAVIGATE_TASK_LIST: 'Task List',
-    NAVIGATE_TASK: 'Edit Task',
-    NAVIGATE_CHOOSE_ICON: 'Choose Icon',
-    NAVIGATE_CURRENT_TASK: 'Current Task'
-  };
+  if (state.matches('taskView'))
+    return 'Edit Task';
 
-  return title || titleMap[type] || type;
+  if (state.matches('chooseGroupIcon'))
+    return 'Choose Icon';
+
+  return 'Koule';
 }

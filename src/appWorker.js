@@ -5,7 +5,6 @@ import { TasksModelMachine } from "./machines/TasksModelMachine";
 import { GroupListMachine } from "./machines/GroupList";
 import { UiMachine } from "./machines/UiMachine";
 import { WaitMachine } from "./machines/WaitMachine";
-import { ReplayMachine, navigationReplay, offlineReplay } from "./machines/ReplayMachine";
 import { NetworkStatusMachine, workerConfig } from "./machines/NetworkStatusMachine";
 import { OfflineMachine } from "./machines/OfflineMachine";
 import { interpret } from "xstate";
@@ -22,7 +21,6 @@ const workerMachine = ExchangeMachine.withContext({
       taskList: { source: TasksModelMachine },
       task: { source: TaskMachine },
       groupList: { source: GroupListMachine },
-      nav: { source: ReplayMachine.withConfig(navigationReplay) },
       ui: { source: UiMachine },
       wait: { source: WaitMachine },
       offline: { source: OfflineMachine },
