@@ -12,6 +12,8 @@ import { useTrail, useSpring, animated } from "react-spring";
 export function TaskPage(props) {
   const { taskList, task, groupList, send } = useMachineProvider();
   const groups = groupList.context.groupList;
+  const tasks = taskList.context.tasks;
+
   const { id, group_id, description, start, end } = task.context;
   const group = groups.find(g => g.id === group_id);
 
@@ -34,14 +36,14 @@ export function TaskPage(props) {
     setGroupId(id);
   };
 
-  const isLastTask = id === taskList.context.tasks[taskList.context.tasks.length - 1].id;
+  const isLastTask = tasks.length && id === tasks[tasks.length - 1].id;
   const navigateChooseIcon = () => send('NAVIGATE_CHOOSE_ICON');
   const startTask = () => send('START_TASK');
   const finishTask = () => send('FINISH_TASK');
   const newTask = () => send('CREATE_TASK');
   const nextTask = () => {
-    const index = taskList.context.tasks.findIndex(t => t.id === id);
-    const nextId = taskList.context.tasks[index + 1].id;
+    const index = tasks.findIndex(t => t.id === id);
+    const nextId = tasks[index + 1].id;
     send({ type: 'NAVIGATE_TASK', id: nextId });
   };
 

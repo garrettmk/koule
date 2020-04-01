@@ -4,7 +4,10 @@ import { log, raise } from "xstate/lib/actions";
 
 export const UiMachine = Machine({
   id: 'ui-machine',
-  context: {},
+  context: {
+    title: 'Koule',
+    back: null
+  },
   initial: 'initializing',
   states: {
     initializing: {
@@ -23,7 +26,7 @@ export const UiMachine = Machine({
       }
     },
     taskList: {
-      entry: 'refreshUI',
+      entry: ['setTaskListHeader', 'refreshUI'],
       on: {
         SUBSCRIBE_TASK_LIST_RESULT: {
           actions: 'refreshUI'
@@ -31,7 +34,7 @@ export const UiMachine = Machine({
       }
     },
     taskView: {
-      entry: 'refreshUI',
+      entry: ['setTaskViewHeader', 'refreshUI'],
       on: {
         FINISH_TASK: {
           actions: 'refreshUI'
@@ -51,7 +54,7 @@ export const UiMachine = Machine({
       }
     },
     chooseGroupIcon: {
-      entry: 'refreshUI',
+      entry: ['setChooseIconHeader', 'refreshUI'],
       on: {
         SUBSCRIBE_GROUP_LIST_RESULT: {
           actions: 'refreshUI'
@@ -87,6 +90,21 @@ export const UiMachine = Machine({
       events: ['SUBSCRIBE_TASK_LIST_RESULT', 'SUBSCRIBE_GROUP_LIST_RESULT'],
     }),
 
-    recordNavigation: sendParent('RECORD_NAVIGATION')
+    recordNavigation: sendParent('RECORD_NAVIGATION'),
+
+    setTaskListHeader: assign({
+      title: 'Tasks',
+      back: null
+    }),
+
+    setTaskViewHeader: assign({
+      title: 'Edit Task',
+      back: 'Task List'
+    }),
+
+    setChooseIconHeader: assign({
+      title: 'Choose Activity Icon',
+      back: 'Back to Task'
+    })
   },
 });

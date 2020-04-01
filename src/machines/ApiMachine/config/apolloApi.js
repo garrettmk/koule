@@ -54,6 +54,9 @@ function createApolloClient(config) {
 }
 
 function restartWebsockets() {
+  if (!wsLink)
+    return;
+
   const operations = { ...wsLink.operations };
 
   wsLink.subscriptionClient.close(true);
@@ -112,6 +115,8 @@ export const apolloApi = config => ({
     }),
 
     onAuthenticationError: sendParent('GET_ID_TOKEN'),
+
+    reconnect: () => restartWebsockets(),
   },
 
   guards: {

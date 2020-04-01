@@ -17,6 +17,18 @@ export const ApiMachine = Machine({
 
     running: {
       on: {
+        'xstate.update': {
+          actions: 'removeCompletedServices'
+        },
+
+        REGISTER_API_OPERATIONS: {
+          actions: 'registerApiOperations',
+        },
+
+        NETWORK_ONLINE: {
+          actions: 'reconnect',
+        },
+
         '*': [
           { cond: 'isAuthenticationEvent', actions: 'onAuthenticationEvent' },
           { cond: 'isOperationEvent', actions: 'createOperationService' },
@@ -27,13 +39,4 @@ export const ApiMachine = Machine({
       },
     },
   },
-  on: {
-    'xstate.update': {
-      actions: 'removeCompletedServices'
-    },
-
-    REGISTER_API_OPERATIONS: {
-      actions: 'registerApiOperations',
-    },
-  }
 });

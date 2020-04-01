@@ -1,5 +1,5 @@
-import React, { useRef, Children } from 'react';
-import { useTransition, useSprings } from "react-spring";
+import React, { useRef } from 'react';
+import { useTransition } from "react-spring";
 import { useMachineProvider } from "../../hooks";
 import * as S from './styled';
 
@@ -19,31 +19,30 @@ const TRANSITIONS = {
 export function Pager({ children, ...props }) {
   const { stateMatches } = useMachineProvider();
 
-  const childArray = Children.toArray(children);
+  const childArray = React.Children.toArray(children);
   const matchedIndex = childArray.findIndex(child => child.props.not
     ? !stateMatches(child.props.matches)
     : stateMatches(child.props.matches)
   );
 
+  const matchedChild = childArray[matchedIndex];
   const lastMatchedIndex = useRef(matchedIndex);
+  const direction = matchedIndex < lastMatchedIndex ? 'ltr' : 'rtl';
 
-  const springs = useSprings(
-    childArray.length,
-    childArray.map((child, index) => index <= matchedIndex
-      ? { transform: 'translateX(0%)' }
-      : { transform: 'translateX(100%)' }
-    )
+  const transitions = useTransition(
+    matchedChild,
+    child => child && child.props.matches,
+    TRANSITIONS[direction]
   );
 
   lastMatchedIndex.current = matchedIndex;
 
   return (
     <S.Root {...props}>
-      {springs.map((props, index) => (
-        React.cloneElement(childArray[index], {
-          style: { ...props, ...childArray[index].props.style }
-        })
-      ))}
+      {transitions.map(({ item, key, props }) => item && React.cloneElement(item, {
+        key,
+        style: { ...props, ...item.props.style }
+      }))}
     </S.Root>
   );
 }

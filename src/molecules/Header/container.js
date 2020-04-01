@@ -7,8 +7,8 @@ export function Header() {
   const { send, ui, auth } = useMachineProvider();
 
   const isLoading = auth.matches('authenticating') || ui.matches('loading');
-  const currentTitle = titleForUiState(ui);
-  const lastTitle = 'Back';
+  const currentTitle = ui.context.title;
+  const lastTitle = ui.context.back;
   const navigateBack = () => send('NAVIGATE_BACK');
 
   return (
