@@ -4,12 +4,12 @@ const eventListener = (callback, receive) => {
   const onOnline = () => callback('NETWORK_ONLINE');
   const onOffline = () => callback('NETWORK_OFFLINE');
 
-  self.addEventListener('online', onOnline);
-  self.addEventListener('offline', onOffline);
+  self.addEventListener('online', onOnline);    // eslint-disable-line no-restricted-globals
+  self.addEventListener('offline', onOffline);  // eslint-disable-line no-restricted-globals
 
   return () => {
-    self.removeEventListener('online', onOnline);
-    self.removeEventListener('offline', onOffline);
+    self.removeEventListener('online', onOnline);   // eslint-disable-line no-restricted-globals
+    self.removeEventListener('offline', onOffline); // eslint-disable-line no-restricted-globals
   };
 };
 
@@ -24,6 +24,6 @@ export const workerConfig = {
   },
 
   guards: {
-    isOnline: () => self.navigator.onLine,
+    isOnline: () => self.navigator.onLine,  // eslint-disable-line no-restricted-globals
   }
 };

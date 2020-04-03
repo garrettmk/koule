@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { State, interpret  } from "xstate";
-import { AuthMachine } from "../../machines/AuthMachine";
+import { AuthMachine, PageVisibilityMachine } from "../../machines";
 import authConfig from '../../config/auth';
 import AppWorker from 'worker-loader!../../appWorker'; // eslint-disable-line import/no-webpack-loader-syntax
 
@@ -9,16 +9,23 @@ export const MachineProviderContext = createContext({});
 export function MachineProvider({ children }) {
   const worker = useRef(null);
   const authService = useRef(null);
+  const pageService = useRef(null);
   const [state, setState] = useState({});
 
   useEffect(
     () => {
       worker.current = new AppWorker();
 
-      const authParent = { send: event => worker.current.postMessage(JSON.stringify(event)) };
+      const parent = { send: event => worker.current.postMessage(JSON.stringify(event)) };
+
       authService.current = interpret(
         AuthMachine.withContext({ config: authConfig }),
-        { parent: authParent }
+        { parent }
+      );
+
+      pageService.current = interpret(
+        PageVisibilityMachine,
+        { parent }
       );
 
       // Update the state value, or send a message to auth
@@ -38,10 +45,12 @@ export function MachineProvider({ children }) {
       });
 
       authService.current.start();
+      pageService.current.start();
 
       return () => {
         worker.current.terminate();
         authService.current.stop();
+        pageService.current.stop();
       }
     },
     []

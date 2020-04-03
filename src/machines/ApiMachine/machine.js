@@ -29,6 +29,10 @@ export const ApiMachine = Machine({
           actions: 'reconnect'
         },
 
+        PAGE_VISIBLE: {
+          actions: 'reconnect',
+        },
+
         '*': [
           { cond: 'isAuthenticationEvent', actions: 'onAuthenticationEvent' },
           { cond: 'isOperationEvent', actions: 'createOperationService' },

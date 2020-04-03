@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/machines/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/MachineProvider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MachineProvider/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,105 +21,127 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-                <element signature="n#!!block;n#createApolloClient#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/machines/UiMachine/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/machines/TasksModelMachine/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2337">
-              <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/TaskListPage/components/GroupItem/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/TaskListPage/components/GroupItem/styled.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/TaskPage/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2280">
-              <caret line="103" column="59" selection-start-line="103" selection-start-column="59" selection-end-line="103" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/atoms/ListItemPrimary/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/TaskPage/styled.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="606">
+                  <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="16" selection-start-column="16" selection-end-column="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="648">
+                  <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/containers/MachineProvider/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-281">
+                  <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+                  <folding>
+                    <element signature="e#0#96#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/appWorker.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-363">
+                  <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="24">
+                  <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="264">
+                  <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="624">
+                  <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="768">
+                  <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="168">
+                  <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="25" selection-start-column="25" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret column="17" selection-start-column="17" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -187,9 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/machines/AppWorker/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/runWorkerService.js" />
-        <option value="$PROJECT_DIR$/src/machines/WaitMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/AppMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/ExchangeMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/RouterMachine/index.js" />
@@ -212,12 +236,9 @@
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/config/index.js" />
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/index.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/containers/MachineProvider/index.js" />
         <option value="$PROJECT_DIR$/src/config/api.js" />
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/index.js" />
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/machines/AuthMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/ReplayMachine/config/default.js" />
         <option value="$PROJECT_DIR$/src/machines/ReplayMachine/index.js" />
@@ -236,8 +257,14 @@
         <option value="$PROJECT_DIR$/src/pages/TaskPage/index.js" />
         <option value="$PROJECT_DIR$/src/pages/TaskListPage/components/GroupItem/styled.js" />
         <option value="$PROJECT_DIR$/src/atoms/ListItemPrimary/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" />
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" />
+        <option value="$PROJECT_DIR$/src/containers/MachineProvider/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" />
       </list>
     </option>
   </component>
@@ -280,27 +307,20 @@
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atoms" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="atoms" type="462c0819:PsiDirectoryNode" />
-              <item name="ListItemPrimary" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="MachineProvider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiMachine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -308,64 +328,21 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="machines" type="462c0819:PsiDirectoryNode" />
               <item name="ApiMachine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="machines" type="462c0819:PsiDirectoryNode" />
+              <item name="PageVisibilityMachine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="machines" type="462c0819:PsiDirectoryNode" />
+              <item name="PageVisibilityMachine" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="TasksModelMachine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="UiMachine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="TaskListPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="TaskListPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="TaskListPage" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GroupItem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="TaskPage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -527,7 +504,7 @@
       <workItem from="1585668331944" duration="11485000" />
       <workItem from="1585759446075" duration="5499000" />
       <workItem from="1585873254495" duration="2886000" />
-      <workItem from="1585928451972" duration="1574000" />
+      <workItem from="1585928451972" duration="6079000" />
     </task>
     <task id="LOCAL-00001" summary="Whole new app machine.">
       <created>1578689000796</created>
@@ -781,22 +758,29 @@
       <option name="project" value="LOCAL" />
       <updated>1585885592842</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Bug fix: subscriptions are resent when app comes back online">
+      <created>1585938785181</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1585938785181</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="759096000" />
+    <option name="totallyTimeSpent" value="763601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23466666" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23466666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32997987" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32092556" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32092556" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -884,7 +868,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/graphql-engine-heroku" />
     </ignored-roots>
-    <MESSAGE value="Added ResizeObserver polyfill" />
     <MESSAGE value="Animated clip-path with react-spring" />
     <MESSAGE value="Updated clip-path and Divider styling" />
     <MESSAGE value="Animating with clip vs clip-path" />
@@ -909,48 +892,10 @@
     <MESSAGE value="Removed nav service" />
     <MESSAGE value="Changed how Pager works" />
     <MESSAGE value="Updated TaskListPage styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated TaskListPage styling" />
+    <MESSAGE value="Bug fix: subscriptions are resent when app comes back online" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix: subscriptions are resent when app comes back online" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/atoms/SectionDivider/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/TaskPage/components/TaskDuration/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/TaskPage/components/TaskDuration/styled.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/atoms/Button/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -999,13 +944,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApolloMachine/ApolloMachine.js" />
-    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/AuthMachine/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -1028,20 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/GroupList/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1049,13 +973,6 @@
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1111,39 +1028,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/MachineProvider/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#96#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1269,13 +1159,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
@@ -1284,6 +1167,99 @@
             <element signature="e#0#57#0" expanded="true" />
             <element signature="n#!!block;n#createApolloClient#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1899">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="25" selection-start-column="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/MachineProvider/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-281">
+          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-363">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
         </state>
       </provider>
     </entry>
