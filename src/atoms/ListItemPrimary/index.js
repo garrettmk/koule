@@ -13,14 +13,12 @@ export const ListItemPrimary = styled.li`
   align-items: center;
   grid-gap: ${space.units(2)};
   grid-template-rows: auto;
-  grid-template-columns: ${ ({ children }) =>
-    Children.count(children) === 3 ? 'auto 1fr auto' :
-    Children.count(children) === 2 ? 'auto 1fr' :
-    '1fr' };
+  grid-template-columns: 1fr auto;
   
   color: ${palette.textPrimary};
   font: ${fonts.body};
-  border-bottom: 1px solid ${palette.divider};
+  //border-bottom: 1px solid ${palette.divider};
+  margin-top: 1px;
   
   cursor: ${ ({ onClick }) => onClick ? 'pointer' : 'default' };
 `;

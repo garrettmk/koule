@@ -56,19 +56,6 @@ export function TaskPage(props) {
 
   // Animations
 
-  const [
-    durationProps,
-    descriptionProps,
-    descriptionInputProps,
-    activityProps,
-    iconButtonProps,
-    activityInputProps,
-    actionButtonProps
-  ] = useTrail(7, {
-    transform: 'translateX(0)',
-    from: { transform: 'translateX(200vw)' }
-  });
-
   const actionHolderProps = useSpring({
     height: task.matches('invalid') ? 0 : 48,
     overflow: 'hidden',
@@ -80,19 +67,17 @@ export function TaskPage(props) {
       <TaskDuration
         start={start}
         end={end}
-        style={durationProps}
       />
 
-      <S.SectionHeader style={descriptionProps}>Description</S.SectionHeader>
+      <S.SectionHeader>Description</S.SectionHeader>
       <S.DescriptionInput
         value={description}
         onSubmit={setDescription}
-        style={descriptionInputProps}
       />
 
-      <S.SectionHeader style={activityProps}>Activity</S.SectionHeader>
+      <S.SectionHeader>Activity</S.SectionHeader>
       <S.ActivityFrame>
-        <Button outlined disabled={!group} onClick={navigateChooseIcon} style={iconButtonProps}>
+        <Button outlined disabled={!group} onClick={navigateChooseIcon}>
           {(() => {
             const name = group && group.icon;
             const component = icons[name] || icons['QuestionIcon'];
@@ -105,7 +90,6 @@ export function TaskPage(props) {
           value={group ? group.description : ''}
           onSubmit={updateGroup}
           list={'group-names-list'}
-          style={activityInputProps}
         />
         <datalist id={'group-names-list'}>
           {groups.map(group => (
@@ -117,7 +101,7 @@ export function TaskPage(props) {
       </S.ActivityFrame>
 
       <animated.div style={actionHolderProps}>
-        <S.ActionButton disabled={!action} onClick={action} style={actionButtonProps}>
+        <S.ActionButton disabled={!action} onClick={action}>
           {label}
         </S.ActionButton>
       </animated.div>

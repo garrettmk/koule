@@ -8,7 +8,7 @@ export const PrimaryItem = styled(ListItemPrimary)`
 `;
 
 export const CollapseOuter = styled(Collapse.Outer)`
-  &::after {
+  &::before {
     content: "";
     display: block;
     position: absolute;
@@ -18,10 +18,12 @@ export const CollapseOuter = styled(Collapse.Outer)`
     height: 1px;
     background-color: ${ ({ open, theme }) => open ? theme.palette.divider : 'transparent' };
   }
+  
+  background-color: ${palette.foreground};
 `;
 
 export const CollapseInner = styled(Collapse.Inner)`
-
+  border-top: 1px solid ${palette.divider};
 `;
 
 export const DummyIcon = styled.div`

@@ -10,12 +10,12 @@ export function GroupItem({ children, group = {}, tasks = [], ...props }) {
   const toggleOpen = () => setOpen(!open);
 
   const { icon, description } = group;
-  const iconElement = icon && React.createElement(icons[icon]);
+  // const iconElement = icon && React.createElement(icons[icon]);
 
   return (
     <Fragment>
       <S.PrimaryItem open={open} onClick={toggleOpen} {...props}>
-        {iconElement || <S.DummyIcon/>}
+        {/*{iconElement || <S.DummyIcon/>}*/}
         {description ? (
           <Body>{description}</Body>
         ) : (
