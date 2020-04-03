@@ -26,7 +26,7 @@ export const ApiMachine = Machine({
         },
 
         NETWORK_ONLINE: {
-          actions: 'reconnect',
+          actions: 'reconnect'
         },
 
         '*': [

@@ -57,13 +57,13 @@ function restartWebsockets() {
   if (!wsLink)
     return;
 
-  const operations = { ...wsLink.operations };
+  const operations = { ...wsLink.subscriptionClient.operations };
 
   wsLink.subscriptionClient.close(true);
   wsLink.subscriptionClient.connect();
 
   Object.keys(operations).forEach(id => {
-    wsLink.sendMessage(
+    wsLink.subscriptionClient.sendMessage(
       id,
       MessageTypes.GQL_START,
       operations[id].options,
