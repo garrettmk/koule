@@ -8,7 +8,17 @@ export function HeaderComponent({
   onNavigateBack,
   onMenuClicked,
   isLoading,
+  notification,
 }) {
+  if (notification)
+    return (
+      <S.Frame>
+        <S.Notification>
+          {notification.type}
+        </S.Notification>
+      </S.Frame>
+    );
+
   return (
     <S.Frame>
       {lastTitle && onNavigateBack && (

@@ -7,6 +7,7 @@ import { UiMachine } from "./machines/UiMachine";
 import { WaitMachine } from "./machines/WaitMachine";
 import { NetworkStatusMachine, workerConfig } from "./machines/NetworkStatusMachine";
 import { OfflineMachine } from "./machines/OfflineMachine";
+import { NotificationMachine } from "./machines/NotificationMachine";
 import { interpret } from "xstate";
 import { apiConfig } from "./config/api";
 
@@ -24,7 +25,8 @@ const workerMachine = ExchangeMachine.withContext({
       ui: { source: UiMachine },
       wait: { source: WaitMachine },
       offline: { source: OfflineMachine },
-      network: { source: NetworkStatusMachine.withConfig(workerConfig) }
+      network: { source: NetworkStatusMachine.withConfig(workerConfig) },
+      notifications: { source: NotificationMachine }
     }
   }
 });

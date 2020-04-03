@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/machines/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/machines/NotificationMachine/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/MachineProvider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/MachineProvider/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/appWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Header/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Header/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/container.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/molecules/Header/styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/molecules/Header/styled.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,16 +22,64 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="606">
+                <state relative-caret-position="501">
                   <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/NotificationMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="739">
+                  <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/molecules/Header/component.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="456">
+                  <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/molecules/Header/styled.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="814">
+                  <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/theme/selectors.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/molecules/Header/container.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="408">
+                  <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state>
@@ -43,31 +89,13 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="648">
-                  <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/containers/MachineProvider/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-281">
-                  <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#0#96#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/appWorker.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-363">
-                  <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+                <state relative-caret-position="672">
+                  <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#0#61#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -86,24 +114,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="264">
                   <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="624">
-                  <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="768">
-                  <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -214,9 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/machines/AppMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/ExchangeMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/RouterMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/TaskListMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/TaskListMachine/queries.js" />
         <option value="$PROJECT_DIR$/src/atoms/ElapsedTime/index.js" />
@@ -247,10 +254,8 @@
         <option value="$PROJECT_DIR$/src/machines/ReplayMachine/config/offlineConfig.js" />
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/config/ApolloOperation.js" />
         <option value="$PROJECT_DIR$/src/machines/OfflineMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/appWorker.js" />
         <option value="$PROJECT_DIR$/src/molecules/Header/utils.js" />
         <option value="$PROJECT_DIR$/src/machines/UiMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/molecules/Header/container.js" />
         <option value="$PROJECT_DIR$/src/containers/Pager/index.js" />
         <option value="$PROJECT_DIR$/src/containers/Page/index.js" />
         <option value="$PROJECT_DIR$/src/pages/TaskListPage/components/GroupItem/index.js" />
@@ -264,7 +269,12 @@
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" />
         <option value="$PROJECT_DIR$/src/containers/MachineProvider/index.js" />
         <option value="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" />
+        <option value="$PROJECT_DIR$/src/appWorker.js" />
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" />
+        <option value="$PROJECT_DIR$/src/molecules/Header/container.js" />
+        <option value="$PROJECT_DIR$/src/molecules/Header/styled.js" />
+        <option value="$PROJECT_DIR$/src/molecules/Header/component.js" />
+        <option value="$PROJECT_DIR$/src/machines/NotificationMachine/index.js" />
       </list>
     </option>
   </component>
@@ -307,19 +317,6 @@
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="containers" type="462c0819:PsiDirectoryNode" />
-              <item name="MachineProvider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="machines" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -327,7 +324,7 @@
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiMachine" type="462c0819:PsiDirectoryNode" />
+              <item name="NotificationMachine" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -340,9 +337,20 @@
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="PageVisibilityMachine" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="molecules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="molecules" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
+              <item name="koule" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -504,7 +512,7 @@
       <workItem from="1585668331944" duration="11485000" />
       <workItem from="1585759446075" duration="5499000" />
       <workItem from="1585873254495" duration="2886000" />
-      <workItem from="1585928451972" duration="6079000" />
+      <workItem from="1585928451972" duration="8974000" />
     </task>
     <task id="LOCAL-00001" summary="Whole new app machine.">
       <created>1578689000796</created>
@@ -765,15 +773,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585938785181</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Added PageVisibilityMachine, subscriptions reconnect when page&#10;regains visibility.">
+      <created>1585952278685</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1585952278685</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="763601000" />
+    <option name="totallyTimeSpent" value="766496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23466666" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -787,7 +801,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32997987" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.1891348" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.19919518" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="GraphQL" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
@@ -868,7 +882,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/graphql-engine-heroku" />
     </ignored-roots>
-    <MESSAGE value="Animated clip-path with react-spring" />
     <MESSAGE value="Updated clip-path and Divider styling" />
     <MESSAGE value="Animating with clip vs clip-path" />
     <MESSAGE value="Added Group machine, group editing + new styles" />
@@ -893,29 +906,10 @@
     <MESSAGE value="Changed how Pager works" />
     <MESSAGE value="Updated TaskListPage styling" />
     <MESSAGE value="Bug fix: subscriptions are resent when app comes back online" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix: subscriptions are resent when app comes back online" />
+    <MESSAGE value="Added PageVisibilityMachine, subscriptions reconnect when page&#10;regains visibility." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added PageVisibilityMachine, subscriptions reconnect when page&#10;regains visibility." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/atoms/Button/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/atoms/TextInput/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -1065,31 +1059,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/theme/selectors.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/TaskPage/components/index.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/molecules/Header/component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/molecules/Header/container.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/theme/theme.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1192,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state relative-caret-position="168">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1204,24 +1175,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="26" column="88" selection-start-line="26" selection-start-column="88" selection-end-line="26" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1242,13 +1199,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -1256,10 +1206,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
+        <state relative-caret-position="501">
           <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/molecules/Header/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/theme/selectors.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/molecules/Header/styled.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/molecules/Header/component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/NotificationMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>

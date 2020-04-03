@@ -34,3 +34,17 @@ export const Loader = styled(LinearProgress)`
   left: 0;
   right: 0;
 `;
+
+export const Notification = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: ${palette.primary};
+  color: ${palette.background};
+  font: ${fonts.body};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
