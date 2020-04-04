@@ -43,6 +43,7 @@ export const AuthMachine = Machine({
     signedOut: {
       on: {
         SIGN_IN: { actions: 'authorize' },
+        NETWORK_ONLINE: { target: 'signedOut', internal: false },
       },
       invoke: {
         id: 'check-session-service',

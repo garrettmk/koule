@@ -15,7 +15,7 @@ import { apiConfig } from "./config/api";
 const workerMachine = ExchangeMachine.withContext({
   config: {
     rules: {
-      broadcastToParent: ['SIGN_IN', 'GET_ID_TOKEN'],
+      broadcastToParent: ['SIGN_IN', 'GET_ID_TOKEN', 'NETWORK_ONLINE'],
     },
     services: {
       api: { source: ApiMachine.withConfig(apolloApi(apiConfig)) },

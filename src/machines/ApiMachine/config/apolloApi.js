@@ -5,16 +5,23 @@ import { WebSocketLink } from "apollo-link-ws";
 import { SubscriptionClient } from "subscriptions-transport-ws";
 import { getMainDefinition } from "apollo-utilities";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { persistCache } from "apollo-cache-persist";
 import { ApolloLink, split } from "apollo-link";
 import { setContext } from "apollo-link-context";
 import { ApolloOperation } from "./ApolloOperation";
 import MessageTypes from "subscriptions-transport-ws/dist/message-types";
+import localForage from 'localforage';
 
 let apollo = null;
 let idToken = null;
 let wsLink = null;
 
-function createApolloClient(config) {
+localForage.config({
+  driver: [localForage.INDEXEDDB, localForage.WEBSQL],
+  name: 'koule-storage',
+});
+
+async function createApolloClient(config) {
   const authLink = setContext(({ headers }) => ({
     headers: {
       ...headers,
@@ -45,11 +52,12 @@ function createApolloClient(config) {
   );
 
   const cache = new InMemoryCache();
+  await persistCache({ cache, storage: localForage });
 
   apollo = new ApolloClient({
     cache,
     link,
-    defaultOptions: { fetchPolicy: 'network-only' }
+    defaultOptions: { fetchPolicy: 'cache-first' }
   });
 }
 
@@ -69,13 +77,13 @@ function restartWebsockets() {
       operations[id].options,
     );
   });
+
+  wsLink.subscriptionClient.operations = operations;
 }
 
 export const apolloApi = config => ({
   actions: {
-    initialize: () => {
-      createApolloClient(config)
-    },
+    initialize: async () => await createApolloClient(config),
 
     createOperationService: assign({
       services: ({ operations, services }, event) => {

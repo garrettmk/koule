@@ -13,6 +13,8 @@ const eventListener = callback => {
 
   return () => {
     document.removeEventListener('visiblitychange', handleVisibilityChange);
+    window.removeEventListener('pageshow', handlePageShow);
+    window.removeEventListener('pagehide', handlePageHide);
   }
 };
 

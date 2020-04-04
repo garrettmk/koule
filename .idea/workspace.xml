@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1c82eea8-af46-47ac-b516-8f280eee4abc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/appWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/appWorker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/machines/AuthMachine/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/AuthMachine/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,21 +26,50 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="405">
-                  <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+                <state relative-caret-position="391">
+                  <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="749">
+                  <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#0#57#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
+            <entry file="file://$PROJECT_DIR$/src/machines/AuthMachine/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="109">
-                  <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+                <state relative-caret-position="541">
+                  <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/appWorker.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1">
+                  <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
                   <folding>
-                    <element signature="e#0#57#0" expanded="true" />
-                    <element signature="n#!!block;n#createApolloClient#0" />
+                    <element signature="e#0#61#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/config/auth.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="144">
+                  <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
                 </state>
               </provider>
             </entry>
@@ -62,33 +96,6 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/molecules/Header/styled.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="814">
-                  <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/theme/selectors.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="96">
-                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/molecules/Header/container.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="408">
-                  <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="24">
@@ -97,11 +104,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="216">
-                  <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+                <state relative-caret-position="211">
+                  <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="24">
+                  <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
                 </state>
               </provider>
             </entry>
@@ -114,7 +130,7 @@
             <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="168">
-                  <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+                  <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -212,7 +228,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/machines/TaskListMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/TaskListMachine/queries.js" />
         <option value="$PROJECT_DIR$/src/atoms/ElapsedTime/index.js" />
         <option value="$PROJECT_DIR$/src/machines/TaskMachine/index.js" />
@@ -234,7 +249,6 @@
         <option value="$PROJECT_DIR$/src/config/api.js" />
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/index.js" />
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/AuthMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/ReplayMachine/config/default.js" />
         <option value="$PROJECT_DIR$/src/machines/ReplayMachine/index.js" />
         <option value="$PROJECT_DIR$/src/machines/TasksModelMachine/index.js" />
@@ -255,14 +269,16 @@
         <option value="$PROJECT_DIR$/src/machines/index.js" />
         <option value="$PROJECT_DIR$/src/machines/NetworkStatusMachine/config/worker.js" />
         <option value="$PROJECT_DIR$/src/containers/MachineProvider/index.js" />
-        <option value="$PROJECT_DIR$/src/appWorker.js" />
         <option value="$PROJECT_DIR$/src/machines/ApiMachine/machine.js" />
         <option value="$PROJECT_DIR$/src/molecules/Header/container.js" />
         <option value="$PROJECT_DIR$/src/molecules/Header/styled.js" />
         <option value="$PROJECT_DIR$/src/molecules/Header/component.js" />
         <option value="$PROJECT_DIR$/src/machines/NotificationMachine/index.js" />
-        <option value="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" />
         <option value="$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js" />
+        <option value="$PROJECT_DIR$/src/machines/AuthMachine/index.js" />
+        <option value="$PROJECT_DIR$/src/appWorker.js" />
+        <option value="$PROJECT_DIR$/src/config/auth.js" />
+        <option value="$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js" />
       </list>
     </option>
   </component>
@@ -299,24 +315,6 @@
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
               <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="subscriptions-transport-ws" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="subscriptions-transport-ws" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -339,40 +337,6 @@
               <item name="machines" type="462c0819:PsiDirectoryNode" />
               <item name="ApiMachine" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="PageVisibilityMachine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="machines" type="462c0819:PsiDirectoryNode" />
-              <item name="PageVisibilityMachine" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="molecules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="molecules" type="462c0819:PsiDirectoryNode" />
-              <item name="Header" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="koule" type="b2602c69:ProjectViewProjectNode" />
-              <item name="koule" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="koule" type="b2602c69:ProjectViewProjectNode" />
@@ -534,7 +498,7 @@
       <workItem from="1585668331944" duration="11485000" />
       <workItem from="1585759446075" duration="5499000" />
       <workItem from="1585873254495" duration="2886000" />
-      <workItem from="1585928451972" duration="11412000" />
+      <workItem from="1585928451972" duration="15494000" />
     </task>
     <task id="LOCAL-00001" summary="Whole new app machine.">
       <created>1578689000796</created>
@@ -809,11 +773,18 @@
       <option name="project" value="LOCAL" />
       <updated>1585956326527</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Updated PageVisibilityMachine">
+      <created>1585958686262</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1585958686262</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="768934000" />
+    <option name="totallyTimeSpent" value="773016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -912,7 +883,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/graphql-engine-heroku" />
     </ignored-roots>
-    <MESSAGE value="Animating with clip vs clip-path" />
     <MESSAGE value="Added Group machine, group editing + new styles" />
     <MESSAGE value="Many updates" />
     <MESSAGE value="UI updates. Enabled service worker." />
@@ -937,19 +907,10 @@
     <MESSAGE value="Bug fix: subscriptions are resent when app comes back online" />
     <MESSAGE value="Added PageVisibilityMachine, subscriptions reconnect when page&#10;regains visibility." />
     <MESSAGE value="Added NotificationMachine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added NotificationMachine" />
+    <MESSAGE value="Updated PageVisibilityMachine" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated PageVisibilityMachine" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/machines/ReplayMachine/config/navigation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="9" column="93" selection-start-line="9" selection-start-column="93" selection-end-line="9" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApolloMachine/ApolloQueryMachine.js" />
     <entry file="file://$PROJECT_DIR$/src/machines/ApolloMachine/ApolloSubscriptionMachine.js" />
     <entry file="file://$PROJECT_DIR$/src/config/api.js">
@@ -960,13 +921,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ApolloMachine/ApolloMachine.js" />
-    <entry file="file://$PROJECT_DIR$/src/machines/AuthMachine/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="131" selection-start-line="131" selection-end-line="131" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/ReplayMachine/config/default.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -1175,7 +1129,7 @@
     <entry file="file://$PROJECT_DIR$/src/machines/NetworkStatusMachine/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1203,27 +1157,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
           <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1265,13 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/subscriptions-transport-ws/dist/message-types.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1279,17 +1209,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="21" selection-start-column="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-            <element signature="n#!!block;n#createApolloClient#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1302,8 +1221,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/machines/PageVisibilityMachine/config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="56" selection-end-line="9" selection-end-column="56" />
+        <state relative-caret-position="211">
+          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="25" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/machine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/AuthMachine/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="45" column="65" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/appWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/machines/ApiMachine/config/apolloApi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="80" column="52" selection-start-line="80" selection-start-column="52" selection-end-line="80" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
