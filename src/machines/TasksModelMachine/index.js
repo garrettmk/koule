@@ -16,7 +16,7 @@ export const TasksModelMachine = Machine({
       }
     },
     ready: {
-
+      entry: 'subscribeTasks'
     }
   },
   on: {
@@ -48,21 +48,19 @@ export const TasksModelMachine = Machine({
   actions: {
     registerApiOperations: sendParent({
       type: 'REGISTER_API_OPERATIONS',
-      operations: [
-        {
+      operations: {
+        SUBSCRIBE_TASK_LIST: {
           body: SUBSCRIBE_TASKS,
-          sendEvent: 'SUBSCRIBE_TASK_LIST',
           successEvent: 'SUBSCRIBE_TASK_LIST_RESULT',
           errorEvent: 'SUBSCRIBE_TASK_LIST_ERROR',
-          cancelEvent: 'SUBSCRIBE_TASK_LIST_CANCEL'
         },
-        {
+        UPDATE_TASK: {
           body: UPSERT_TASK,
-          sendEvent: 'UPDATE_TASK',
           successEvent: 'UPDATE_TASK_RESULT',
-          errorEvent: 'UPDATE_TASK_ERROR'
+          errorEvent: 'UPDATE_TASK_ERROR',
+          excludeFromCache: true,
         }
-      ]
+      }
     }),
 
     subscribeTasks: sendParent('SUBSCRIBE_TASK_LIST'),

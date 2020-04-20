@@ -33,7 +33,10 @@ async function createApolloClient(config) {
 
   wsLink = new WebSocketLink(
     new SubscriptionClient(config.websocketURI, {
-      options: { reconnect: true },
+      options: {
+        reconnect: true,
+        lazy: true,
+      },
       connectionParams: () => ({
         headers: {
           Authorization: 'Bearer ' + idToken
@@ -62,7 +65,7 @@ async function createApolloClient(config) {
 }
 
 function restartWebsockets() {
-  if (!wsLink)
+  if (!wsLink || !self.navigator.onLine)  // eslint-disable-line no-restricted-globals
     return;
 
   const operations = { ...wsLink.subscriptionClient.operations };
@@ -81,10 +84,23 @@ function restartWebsockets() {
   wsLink.subscriptionClient.operations = operations;
 }
 
+function websocketListener(callback, receive) {
+  const removeDisconnectListener = wsLink.subscriptionClient.onDisconnected(data =>
+    callback({ type: 'WEBSOCKETS_DISCONNECTED', data })
+  );
+
+  const removeErrorListener = wsLink.subscriptionClient.onError(data =>
+    callback({ type: 'WEBSOCKETS_ERROR', data })
+  );
+
+  return () => {
+    removeDisconnectListener();
+    removeErrorListener();
+  };
+}
+
 export const apolloApi = config => ({
   actions: {
-    initialize: async () => await createApolloClient(config),
-
     createOperationService: assign({
       services: ({ operations, services }, event) => {
         const op = operations.find(op => op.sendEvent === event.type);
@@ -106,6 +122,30 @@ export const apolloApi = config => ({
       }
     }),
 
+    restartRunningServices: assign({
+      services: ({ services }) => {
+        console.log('restarting services');
+        debugger;
+        const runningServices = services.filter(service => !service.state.done);
+
+        return runningServices.map(service => {
+          const { operation, event } = service.state.context;
+          const { operation: opType } = getMainDefinition(operation.body);
+
+          const send =
+            opType === 'query' ? () => apollo.query({ query: operation.body, variables: event.variables }) :
+            opType === 'mutation' ? () => apollo.mutate({ mutation: operation.body, variables: event.variables }) :
+            opType === 'subscription' ? () => apollo.subscribe({ query: operation.body, variables: event.variables }) :
+            null;
+
+          return spawn(
+            ApolloOperation.withContext({ operation, event, send }),
+            { sync: true }
+          );
+        });
+      },
+    }),
+
     removeCompletedServices: assign({
       services: ({ services }) => services.filter(service => service.state.done),
     }),
@@ -125,6 +165,12 @@ export const apolloApi = config => ({
     onAuthenticationError: sendParent('GET_ID_TOKEN'),
 
     reconnect: () => restartWebsockets(),
+  },
+
+  services: {
+    initialize: () => createApolloClient(config),
+
+    websocketListener: () => websocketListener,
   },
 
   guards: {

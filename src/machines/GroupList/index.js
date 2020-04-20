@@ -9,7 +9,7 @@ export const GroupListMachine = Machine({
   initial: 'initializing',
   states: {
     initializing: {
-      entry: 'registerApiOperations',
+      entry: ['registerApiOperations', 'subscribeGroupList'],
       on: {
         '': 'ready'
       }
@@ -17,10 +17,6 @@ export const GroupListMachine = Machine({
     ready: {}
   },
   on: {
-    API_READY: {
-      actions: 'subscribeGroupList',
-    },
-
     SUBSCRIBE_GROUP_LIST_RESULT: {
       actions: 'assignSubscribeResult'
     }
@@ -29,27 +25,26 @@ export const GroupListMachine = Machine({
   actions: {
     registerApiOperations: sendParent({
       type: 'REGISTER_API_OPERATIONS',
-      operations: [
-        {
+      operations: {
+        SUBSCRIBE_GROUP_LIST: {
           body: SUBSCRIBE_GROUP_LIST,
-          sendEvent: 'SUBSCRIBE_GROUP_LIST',
           successEvent: 'SUBSCRIBE_GROUP_LIST_RESULT',
           errorEvent: 'SUBSCRIBE_GROUP_LIST_ERROR',
           cancelEvent: 'SUBSCRIBE_GROUP_LIST_CANCEL'
         },
-        {
+        CREATE_GROUP: {
           body: CREATE_GROUP,
-          sendEvent: 'CREATE_GROUP',
           successEvent: 'CREATE_GROUP_RESULT',
-          errorEvent: 'CREATE_GROUP_ERROR'
+          errorEvent: 'CREATE_GROUP_ERROR',
+          excludeFromCache: true,
         },
-        {
+        UPDATE_GROUP: {
           body: UPDATE_GROUP,
-          sendEvent: 'UPDATE_GROUP',
           successEvent: 'UPDATE_GROUP_RESULT',
-          errorEvent: 'UPDATE_GROUP_ERROR'
+          errorEvent: 'UPDATE_GROUP_ERROR',
+          excludeFromCache: true,
         }
-      ]
+      }
     }),
 
     subscribeGroupList: sendParent({

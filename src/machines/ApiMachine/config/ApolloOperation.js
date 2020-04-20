@@ -33,8 +33,9 @@ export const ApolloOperation = Machine({
   }
 },{
   actions: {
-    sendSuccessEvent: sendParent(({ operation: { successEvent }}, { data }) => ({
-      type: successEvent,
+    sendSuccessEvent: sendParent(({ operation, event }, { data }) => ({
+      type: operation.successEvent,
+      event,
       data,
     })),
 

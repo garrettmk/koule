@@ -3,6 +3,8 @@ import { State, interpret  } from "xstate";
 import { AuthMachine, PageVisibilityMachine } from "../../machines";
 import authConfig from '../../config/auth';
 import AppWorker from 'worker-loader!../../appWorker'; // eslint-disable-line import/no-webpack-loader-syntax
+import { SubscriptionClientMachine } from "../../machines/GraphQLMachine/SubscriptionClientMachine";
+import { ApiMachine2 } from "../../machines/ApiMachine2";
 
 export const MachineProviderContext = createContext({});
 
@@ -10,6 +12,7 @@ export function MachineProvider({ children }) {
   const worker = useRef(null);
   const authService = useRef(null);
   const pageService = useRef(null);
+  const api2 = useRef(null);
   const [state, setState] = useState({});
 
   useEffect(
@@ -28,29 +31,40 @@ export function MachineProvider({ children }) {
         { parent }
       );
 
+      api2.current = interpret(
+        ApiMachine2,
+        { parent }
+      );
+
       // Update the state value, or send a message to auth
       worker.current.addEventListener('message', ({ data }) => {
         const event = JSON.parse(data);
         console.log('@worker, ', event);
 
         if (event.type === 'worker.state') {
-          const newState = { auth: authService.current.state };
+          const newState = {
+            auth: authService.current.state,
+            api2: api2.current.state,
+          };
           Object.entries(event.states).forEach(([name, state]) =>
             newState[name] = State.create(state)
           );
           setState(newState);
         } else {
           authService.current.send(event);
+          api2.current.send(event);
         }
       });
 
       authService.current.start();
       pageService.current.start();
+      api2.current.start();
 
       return () => {
         worker.current.terminate();
         authService.current.stop();
         pageService.current.stop();
+        api2.current.stop();
       }
     },
     []

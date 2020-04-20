@@ -1,5 +1,6 @@
 import { ExchangeMachine } from "./machines/ExchangeMachine";
 import { ApiMachine, apolloApi } from "./machines/ApiMachine";
+import { ApolloMachine } from "./machines/ApolloMachine";
 import { TaskMachine } from "./machines/TaskMachine";
 import { TasksModelMachine } from "./machines/TasksModelMachine";
 import { GroupListMachine } from "./machines/GroupList";
@@ -7,6 +8,7 @@ import { UiMachine } from "./machines/UiMachine";
 import { WaitMachine } from "./machines/WaitMachine";
 import { NetworkStatusMachine, workerConfig } from "./machines/NetworkStatusMachine";
 import { OfflineMachine } from "./machines/OfflineMachine";
+import { WebSocketMachine } from "./machines/WebSocketMachine";
 import { NotificationMachine } from "./machines/NotificationMachine";
 import { interpret } from "xstate";
 import { apiConfig } from "./config/api";
@@ -15,18 +17,18 @@ import { apiConfig } from "./config/api";
 const workerMachine = ExchangeMachine.withContext({
   config: {
     rules: {
-      broadcastToParent: ['SIGN_IN', 'GET_ID_TOKEN', 'NETWORK_ONLINE'],
+      broadcastToParent: [
+        'SIGN_IN', 'GET_ID_TOKEN',
+      ],
     },
     services: {
-      api: { source: ApiMachine.withConfig(apolloApi(apiConfig)) },
-      taskList: { source: TasksModelMachine },
-      task: { source: TaskMachine },
-      groupList: { source: GroupListMachine },
-      ui: { source: UiMachine },
-      wait: { source: WaitMachine },
-      offline: { source: OfflineMachine },
-      network: { source: NetworkStatusMachine.withConfig(workerConfig) },
-      notifications: { source: NotificationMachine }
+      // api: { source: ApolloMachine.withContext({ config: apiConfig }) },
+      // taskList: { source: TasksModelMachine },
+      // task: { source: TaskMachine },
+      // groupList: { source: GroupListMachine },
+      // ui: { source: UiMachine },
+      // wait: { source: WaitMachine },
+      // notifications: { source: NotificationMachine },
     }
   }
 });
@@ -49,7 +51,14 @@ workerService.onTransition(
       return;
 
     let childStates = {};
-    workerService.children.forEach((child, name) => childStates[name] = child.state);
+    workerService.children.forEach((child, name) => {
+      if (name !== 'api')
+        childStates[name] = child.state;
+
+      if (name === 'api')
+        console.log(child.state);
+
+    });
 
     postMessage(JSON.stringify({
       type: 'worker.state',

@@ -1,5 +1,5 @@
-import { Machine, sendParent } from "xstate";
-
+import { Machine } from "xstate";
+import { defaultConfig } from './config/default';
 
 export const NetworkStatusMachine = Machine({
   id: 'network-status-machine',
@@ -28,6 +28,6 @@ export const NetworkStatusMachine = Machine({
       }
     }
   }
-});
+}, defaultConfig);
 
 export * from './config';

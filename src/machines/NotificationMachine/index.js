@@ -52,6 +52,11 @@ export const NotificationMachine = Machine({
   },
 
   guards: {
-    isMatchingEvent: (_, { type }) => ['NETWORK_ONLINE', 'PAGE_VISIBLE'].includes(type),
+    isMatchingEvent: (_, { type }) => [
+      'NETWORK_ONLINE',
+      'PAGE_VISIBLE',
+      'WEBSOCKETS_ERROR',
+      'WEBSOCKETS_DISCONNECTED'
+    ].includes(type),
   }
 });

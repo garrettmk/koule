@@ -1,4 +1,5 @@
-import { Machine } from "xstate";
+import { Machine, sendParent } from "xstate";
+import { log } from "xstate/lib/actions";
 
 export const ApiMachine = Machine({
   id: 'api-machine',
@@ -9,29 +10,36 @@ export const ApiMachine = Machine({
   initial: 'initializing',
   states: {
     initializing: {
-      entry: 'initialize',
-      on: {
-        '': 'running',
+      invoke: {
+        src: 'initialize',
+        onDone: 'running',
+        onError: 'error'
       }
     },
 
     running: {
+      invoke: {
+        id: 'websocketListener',
+        src: 'websocketListener'
+      },
       on: {
         'xstate.update': {
           actions: 'removeCompletedServices'
         },
 
-        REGISTER_API_OPERATIONS: {
-          actions: 'registerApiOperations',
+        WEBSOCKETS_DISCONNECTED: {
+          actions: [
+            sendParent((_, event) => event),
+          ]
         },
 
-        NETWORK_ONLINE: {
-          actions: 'reconnect'
+        WEBSOCKETS_ERROR: {
+          actions: sendParent((_, event) => event)
         },
 
-        PAGE_VISIBLE: {
-          actions: 'reconnect',
-        },
+        // NETWORK_ONLINE: {
+        //   actions: 'restartRunningServices'
+        // },
 
         '*': [
           { cond: 'isAuthenticationEvent', actions: 'onAuthenticationEvent' },
@@ -42,5 +50,12 @@ export const ApiMachine = Machine({
         ]
       },
     },
+
+    error: {}
   },
+  on: {
+    REGISTER_API_OPERATIONS: {
+      actions: 'registerApiOperations',
+    },
+  }
 });
